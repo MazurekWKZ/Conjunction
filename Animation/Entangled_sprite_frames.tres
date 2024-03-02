@@ -1,0 +1,67 @@
+[gd_resource type="SpriteFrames" load_steps=10 format=3 uid="uid://c0pji58wihwf0"]
+
+[ext_resource type="Texture2D" uid="uid://ck6wv5rc50a30" path="res://Graphics/BlockEntangled.png" id="1_dq65g"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7gw6p"]
+atlas = ExtResource("1_dq65g")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nqdca"]
+atlas = ExtResource("1_dq65g")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_srwxt"]
+atlas = ExtResource("1_dq65g")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2qg86"]
+atlas = ExtResource("1_dq65g")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2oobk"]
+atlas = ExtResource("1_dq65g")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6ix0h"]
+atlas = ExtResource("1_dq65g")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3wmu6"]
+atlas = ExtResource("1_dq65g")
+region = Rect2(64, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_343yj"]
+atlas = ExtResource("1_dq65g")
+region = Rect2(96, 32, 32, 32)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7gw6p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nqdca")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_srwxt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2qg86")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2oobk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6ix0h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3wmu6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_343yj")
+}],
+"loop": true,
+"name": &"Entangled_flicker",
+"speed": 5.0
+}]

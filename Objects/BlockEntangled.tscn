@@ -1,20 +1,21 @@
 [gd_scene load_steps=4 format=3 uid="uid://6sil81eigsp1"]
 
 [ext_resource type="Script" path="res://Scripts/EntangledBlock.gd" id="1_4knf5"]
-[ext_resource type="Texture2D" uid="uid://7yx4362o8440" path="res://Graphics/BlockNormal.png" id="2_6mvk4"]
+[ext_resource type="SpriteFrames" uid="uid://c0pji58wihwf0" path="res://Animation/Entangled_sprite_frames.tres" id="2_shuup"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1f3r4"]
 size = Vector2(32, 16)
 
 [node name="BlockEntangled" type="Node2D"]
-position = Vector2(48, 8)
 script = ExtResource("1_4knf5")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
 position = Vector2(0, -6.5)
-scale = Vector2(1, 0.90625)
-texture = ExtResource("2_6mvk4")
+scale = Vector2(1, 0.906)
+sprite_frames = ExtResource("2_shuup")
+animation = &"Entangled_flicker"
+autoplay = "Entangled_flicker"
 
 [node name="Area2D" type="Area2D" parent="."]
 

@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://bv8fct1eu7vdj"]
+
+[ext_resource type="Script" path="res://Scripts/Cloner.gd" id="1_6o6e3"]
+[ext_resource type="SpriteFrames" uid="uid://bofem7ofdj0f0" path="res://Animation/Cloner_sprite_frames.tres" id="2_g7j7h"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nktiw"]
+size = Vector2(8, 4)
+
+[node name="Cloner" type="Node2D"]
+script = ExtResource("1_6o6e3")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+z_index = -1
+z_as_relative = false
+texture_filter = 1
+scale = Vector2(1.5, 1.5)
+sprite_frames = ExtResource("2_g7j7h")
+animation = &"cloner_flicker"
+autoplay = "cloner_flicker"
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_nktiw")

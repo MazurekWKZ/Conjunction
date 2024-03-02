@@ -1,0 +1,39 @@
+[gd_resource type="SpriteFrames" load_steps=6 format=3 uid="uid://bofem7ofdj0f0"]
+
+[ext_resource type="Texture2D" uid="uid://cq3emjpr1l5ul" path="res://Graphics/Cloner.png" id="1_4nldx"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vuhvf"]
+atlas = ExtResource("1_4nldx")
+region = Rect2(0, 0, 32, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ub6lw"]
+atlas = ExtResource("1_4nldx")
+region = Rect2(32, 0, 32, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_reo5e"]
+atlas = ExtResource("1_4nldx")
+region = Rect2(64, 0, 32, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xt2bh"]
+atlas = ExtResource("1_4nldx")
+region = Rect2(96, 0, 32, 16)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vuhvf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ub6lw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_reo5e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xt2bh")
+}],
+"loop": true,
+"name": &"cloner_flicker",
+"speed": 30.0
+}]

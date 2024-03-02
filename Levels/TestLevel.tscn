@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://y6spc1e14ksm"]
+[gd_scene load_steps=11 format=3 uid="uid://y6spc1e14ksm"]
 
 [ext_resource type="Texture2D" uid="uid://2wp0uad4bge3" path="res://Graphics/MapTileset_visual.png" id="1_33e3j"]
 [ext_resource type="Texture2D" uid="uid://dek2lg53lpyc4" path="res://Graphics/GenericTileset.png" id="1_yabuj"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://bpprpe8id6jbu" path="res://Objects/GateButton.tscn" id="5_webwq"]
 [ext_resource type="PackedScene" uid="uid://c7psqelb6tkex" path="res://Objects/Portal.tscn" id="6_7mjsq"]
 [ext_resource type="PackedScene" uid="uid://6sil81eigsp1" path="res://Objects/BlockEntangled.tscn" id="7_mi4d2"]
+[ext_resource type="PackedScene" uid="uid://bv8fct1eu7vdj" path="res://Objects/Cloner.tscn" id="8_3sc8e"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_qsutw"]
 texture = ExtResource("1_yabuj")
@@ -147,3 +148,13 @@ sibling_node = NodePath("../BlockEntangled2")
 [node name="BlockEntangled2" parent="." node_paths=PackedStringArray("sibling_node") instance=ExtResource("7_mi4d2")]
 position = Vector2(144, -8)
 sibling_node = NodePath("../BlockEntangled")
+
+[node name="Cloner" parent="." node_paths=PackedStringArray("scene_reference", "target_node") instance=ExtResource("8_3sc8e")]
+position = Vector2(-208, 8)
+scene_reference = NodePath("..")
+target_node = NodePath("../Cloner2")
+
+[node name="Cloner2" parent="." node_paths=PackedStringArray("scene_reference", "target_node") instance=ExtResource("8_3sc8e")]
+position = Vector2(-80, -24)
+scene_reference = NodePath("..")
+target_node = NodePath("../Cloner")

@@ -1,7 +1,8 @@
 class_name Portal extends Node2D
 
 @onready var portal_area = $Area2D
-@export var target_node = Node2D
+
+@export var target_node: Node2D
 
 var state = "free"
 

@@ -59,6 +59,10 @@ func move(direction: Vector2):
 			is_moving = true
 			target_position = tile_map.map_to_local(target_tile)
 		return is_moving
+		if detected_object is Player:
+			print("touched_player")
+			is_moving = false
+			return
 
 	if tile_data.get_custom_data("walkable"):
 		is_moving = true
