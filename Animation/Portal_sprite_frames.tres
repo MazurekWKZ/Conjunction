@@ -1,0 +1,39 @@
+[gd_resource type="SpriteFrames" load_steps=6 format=3 uid="uid://dop5j5lm8vm8"]
+
+[ext_resource type="Texture2D" uid="uid://1gute6pjcnbx" path="res://Graphics/Portal.png" id="1_w6fv8"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jqtog"]
+atlas = ExtResource("1_w6fv8")
+region = Rect2(0, 0, 32, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_whgve"]
+atlas = ExtResource("1_w6fv8")
+region = Rect2(32, 0, 32, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_85aes"]
+atlas = ExtResource("1_w6fv8")
+region = Rect2(0, 16, 32, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gbl1e"]
+atlas = ExtResource("1_w6fv8")
+region = Rect2(32, 16, 32, 16)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jqtog")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_whgve")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_85aes")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gbl1e")
+}],
+"loop": true,
+"name": &"portal_swirl",
+"speed": 25.0
+}]

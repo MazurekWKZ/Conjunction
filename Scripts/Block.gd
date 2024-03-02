@@ -29,7 +29,7 @@ func _physics_process(delta):
 			if is_falling:
 				is_locked = true
 				is_falling = false
-				z_index -= 1
+				z_index -= 2
 			return
 		if global_position.y == target_position.y:
 			global_position = global_position.move_toward(target_position, walking_speed)

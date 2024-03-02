@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://bpprpe8id6jbu"]
+
+[ext_resource type="SpriteFrames" uid="uid://dl2a7i0joxjeg" path="res://Animation/Button_sprite_frames.tres" id="1_70vst"]
+[ext_resource type="Script" path="res://Scripts/ButtonGate.gd" id="2_36fp3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nktiw"]
+size = Vector2(16, 8)
+
+[node name="GateButton" type="Node2D"]
+position = Vector2(16, 40)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+scale = Vector2(1.5, 1.5)
+sprite_frames = ExtResource("1_70vst")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 3
+script = ExtResource("2_36fp3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_nktiw")
