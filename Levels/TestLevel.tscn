@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://y6spc1e14ksm"]
+[gd_scene load_steps=10 format=3 uid="uid://y6spc1e14ksm"]
 
 [ext_resource type="Texture2D" uid="uid://2wp0uad4bge3" path="res://Graphics/MapTileset_visual.png" id="1_33e3j"]
 [ext_resource type="Texture2D" uid="uid://dek2lg53lpyc4" path="res://Graphics/GenericTileset.png" id="1_yabuj"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://ckqyoykc7huki" path="res://Objects/BlockNormal.tscn" id="4_tdh1c"]
 [ext_resource type="PackedScene" uid="uid://bpprpe8id6jbu" path="res://Objects/GateButton.tscn" id="5_webwq"]
 [ext_resource type="PackedScene" uid="uid://c7psqelb6tkex" path="res://Objects/Portal.tscn" id="6_7mjsq"]
+[ext_resource type="PackedScene" uid="uid://6sil81eigsp1" path="res://Objects/BlockEntangled.tscn" id="7_mi4d2"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_qsutw"]
 texture = ExtResource("1_yabuj")
@@ -138,3 +139,11 @@ target_node = NodePath("../Portal2")
 [node name="Portal2" parent="." node_paths=PackedStringArray("target_node") instance=ExtResource("6_7mjsq")]
 position = Vector2(-144, -24)
 target_node = NodePath("../Portal")
+
+[node name="BlockEntangled" parent="." node_paths=PackedStringArray("sibling_node") instance=ExtResource("7_mi4d2")]
+position = Vector2(144, 8)
+sibling_node = NodePath("../BlockEntangled2")
+
+[node name="BlockEntangled2" parent="." node_paths=PackedStringArray("sibling_node") instance=ExtResource("7_mi4d2")]
+position = Vector2(144, -8)
+sibling_node = NodePath("../BlockEntangled")
