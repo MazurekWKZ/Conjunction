@@ -29,6 +29,7 @@ func _physics_process(delta):
 			if is_falling:
 				is_locked = true
 				is_falling = false
+				collider_block.position.y -= 16
 				z_index -= 2
 			return
 		if global_position.y == target_position.y:
@@ -40,6 +41,9 @@ func _physics_process(delta):
 func move(direction: Vector2):
 	if is_locked:
 		return is_locked
+	
+	if is_falling:
+		return !is_falling
 	
 	var current_tile: Vector2i = tile_map.local_to_map(global_position)
 	var target_tile: Vector2i = Vector2i(
@@ -74,6 +78,5 @@ func move(direction: Vector2):
 		pass_through = false
 		target_position = tile_map.map_to_local(Vector2i(target_tile.x, target_tile.y + 1))
 		raycast_block.queue_free()
-		collider_block.position += Vector2(0, -16)
 		is_falling = true
 	return pass_through

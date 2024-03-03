@@ -55,6 +55,8 @@ func move(direction: Vector2):
 		if detected_object is Block:
 			move_result = detected_object.move(direction)
 			pass_through = detected_object.is_locked
+		if detected_object is Player:
+			return
 	
 	if (tile_data.get_custom_data("walkable") && move_result) || pass_through:
 		is_moving = true
