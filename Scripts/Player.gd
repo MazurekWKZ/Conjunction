@@ -18,10 +18,16 @@ func _process(delta):
 		
 	if Input.is_action_pressed("ui_up"):
 		move(Vector2.UP)
-		sprite_player.play("walk")
+		if is_pushing:
+			sprite_player.play("push_up")
+		else: 
+			sprite_player.play("walk")
 	elif Input.is_action_pressed("ui_down"):
 		move(Vector2.DOWN)
-		sprite_player.play("walk")
+		if is_pushing:
+			sprite_player.play("push_down")
+		else: 
+			sprite_player.play("walk")
 	elif Input.is_action_pressed("ui_left"):
 		move(Vector2.LEFT)
 		if is_pushing:
@@ -37,6 +43,7 @@ func _process(delta):
 			sprite_player.play("walk")
 		sprite_player.flip_h = 0
 	else:
+		is_pushing = false
 		sprite_player.play("idle")
 	
 func _physics_process(delta):
@@ -73,13 +80,14 @@ func move(direction: Vector2):
 			pass_through = detected_object.is_locked
 			is_pushing = true
 		if detected_object is Player:
-			is_pushing = false
 			return
 	
 	if (tile_data.get_custom_data("walkable") && move_result) || pass_through:
 		is_moving = true
 		target_position = tile_map.map_to_local(target_tile)
-		is_pushing = false
 		return is_moving
-	else:
+	elif tile_data.get_custom_data("hole"):
+		is_pushing = false
+		is_moving = false
+	else:	
 		is_pushing = true

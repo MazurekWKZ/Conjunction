@@ -25,7 +25,7 @@ scale = Vector2(1, 0.906)
 sprite_frames = ExtResource("3_maiee")
 animation = &"push"
 autoplay = "push"
-frame_progress = 0.0518525
+frame_progress = 0.80249
 
 [node name="RayCast2D" type="RayCast2D" parent="."]
 collide_with_areas = true
