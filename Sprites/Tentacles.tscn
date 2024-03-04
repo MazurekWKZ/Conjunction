@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://cuwgaeb2p8n0q"]
+
+[ext_resource type="SpriteFrames" uid="uid://caki7lkf224vc" path="res://Animation/Tentacles_sprite_frames.tres" id="1_ycltm"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D"]
+z_index = -1
+z_as_relative = false
+texture_filter = 1
+position = Vector2(-207, 15)
+sprite_frames = ExtResource("1_ycltm")
+animation = &"Wiggle"
+autoplay = "Wiggle"

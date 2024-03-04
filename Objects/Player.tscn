@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://b7is0s84nwqag"]
+[gd_scene load_steps=5 format=3 uid="uid://b7is0s84nwqag"]
 
 [ext_resource type="Script" path="res://Scripts/Player.gd" id="1_rstop"]
 [ext_resource type="Texture2D" uid="uid://ddg2s1r0bect6" path="res://Graphics/Player.png" id="2_hlvv7"]
+[ext_resource type="SpriteFrames" uid="uid://bogaxb62smgxe" path="res://Animation/Player_sprite_frames.tres" id="3_maiee"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8xayw"]
 size = Vector2(32, 16)
@@ -11,10 +12,20 @@ position = Vector2(16, 8)
 script = ExtResource("1_rstop")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
 texture_filter = 1
 position = Vector2(0, -11)
 scale = Vector2(1, 0.8125)
 texture = ExtResource("2_hlvv7")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(0, -11)
+scale = Vector2(1, 0.906)
+sprite_frames = ExtResource("3_maiee")
+animation = &"push"
+autoplay = "push"
+frame_progress = 0.0518525
 
 [node name="RayCast2D" type="RayCast2D" parent="."]
 collide_with_areas = true

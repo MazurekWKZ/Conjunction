@@ -3,10 +3,12 @@ class_name Player extends Node2D
 
 @onready var tile_map = $"../TileMap"
 @onready var raycast_player = $RayCast2D
+@onready var sprite_player = $AnimatedSprite2D
 
 @export var walking_speed = 2
 
 var is_moving = false
+var is_pushing = false
 var target_position
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -16,12 +18,26 @@ func _process(delta):
 		
 	if Input.is_action_pressed("ui_up"):
 		move(Vector2.UP)
+		sprite_player.play("walk")
 	elif Input.is_action_pressed("ui_down"):
 		move(Vector2.DOWN)
+		sprite_player.play("walk")
 	elif Input.is_action_pressed("ui_left"):
 		move(Vector2.LEFT)
+		if is_pushing:
+			sprite_player.play("push")
+		else: 
+			sprite_player.play("walk")
+		sprite_player.flip_h = 1
 	elif Input.is_action_pressed("ui_right"):
 		move(Vector2.RIGHT)
+		if is_pushing:
+			sprite_player.play("push")
+		else: 
+			sprite_player.play("walk")
+		sprite_player.flip_h = 0
+	else:
+		sprite_player.play("idle")
 	
 func _physics_process(delta):
 	if !is_moving:
@@ -55,10 +71,15 @@ func move(direction: Vector2):
 		if detected_object is Block:
 			move_result = detected_object.move(direction)
 			pass_through = detected_object.is_locked
+			is_pushing = true
 		if detected_object is Player:
+			is_pushing = false
 			return
 	
 	if (tile_data.get_custom_data("walkable") && move_result) || pass_through:
 		is_moving = true
 		target_position = tile_map.map_to_local(target_tile)
+		is_pushing = false
 		return is_moving
+	else:
+		is_pushing = true

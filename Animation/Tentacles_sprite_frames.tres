@@ -1,0 +1,39 @@
+[gd_resource type="SpriteFrames" load_steps=6 format=3 uid="uid://caki7lkf224vc"]
+
+[ext_resource type="Texture2D" uid="uid://cgajkt653kh50" path="res://Graphics/Tentacles.png" id="1_6uaiq"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6ccvn"]
+atlas = ExtResource("1_6uaiq")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l467a"]
+atlas = ExtResource("1_6uaiq")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2lvlx"]
+atlas = ExtResource("1_6uaiq")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e081t"]
+atlas = ExtResource("1_6uaiq")
+region = Rect2(96, 0, 32, 32)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6ccvn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l467a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2lvlx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e081t")
+}],
+"loop": true,
+"name": &"Wiggle",
+"speed": 30.0
+}]
