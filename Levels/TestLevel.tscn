@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://y6spc1e14ksm"]
+[gd_scene load_steps=15 format=3 uid="uid://y6spc1e14ksm"]
 
 [ext_resource type="Texture2D" uid="uid://2wp0uad4bge3" path="res://Graphics/MapTileset_visual.png" id="1_33e3j"]
 [ext_resource type="Texture2D" uid="uid://dek2lg53lpyc4" path="res://Graphics/GenericTileset.png" id="1_yabuj"]
@@ -10,6 +10,8 @@
 [ext_resource type="PackedScene" uid="uid://c7psqelb6tkex" path="res://Objects/Portal.tscn" id="6_7mjsq"]
 [ext_resource type="PackedScene" uid="uid://6sil81eigsp1" path="res://Objects/BlockEntangled.tscn" id="7_mi4d2"]
 [ext_resource type="PackedScene" uid="uid://bv8fct1eu7vdj" path="res://Objects/Cloner.tscn" id="8_3sc8e"]
+[ext_resource type="PackedScene" uid="uid://hdct1bg8ky3i" path="res://Sprites/Sign.tscn" id="11_xcb7n"]
+[ext_resource type="Texture2D" uid="uid://yqa5vdxe8nqw" path="res://Graphics/Steel.png" id="12_51sbt"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_qsutw"]
 texture = ExtResource("1_yabuj")
@@ -175,3 +177,10 @@ target_node = NodePath("../Cloner2")
 position = Vector2(-80, -24)
 scene_reference = NodePath("..")
 target_node = NodePath("../Cloner")
+
+[node name="Sign" parent="." instance=ExtResource("11_xcb7n")]
+position = Vector2(-48, 32)
+
+[node name="Sign2" parent="." instance=ExtResource("11_xcb7n")]
+position = Vector2(-144, -36)
+texture = ExtResource("12_51sbt")

@@ -35,5 +35,5 @@ animations = [{
 }],
 "loop": true,
 "name": &"portal_swirl",
-"speed": 25.0
+"speed": 15.0
 }]

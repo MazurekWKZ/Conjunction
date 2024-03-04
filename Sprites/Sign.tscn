@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://hdct1bg8ky3i"]
+
+[ext_resource type="Texture2D" uid="uid://w4fqf8e6dyrk" path="res://Graphics/Antimony.png" id="1_olv4h"]
+[ext_resource type="Script" path="res://Scripts/Sign.gd" id="2_4cmgc"]
+
+[node name="Sign" type="Sprite2D"]
+z_index = 1000
+texture = ExtResource("1_olv4h")
+script = ExtResource("2_4cmgc")
+alpha_factor = 0.6
