@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://y6spc1e14ksm"]
+[gd_scene load_steps=20 format=3 uid="uid://y6spc1e14ksm"]
 
 [ext_resource type="Texture2D" uid="uid://2wp0uad4bge3" path="res://Graphics/MapTileset_visual.png" id="1_33e3j"]
 [ext_resource type="Texture2D" uid="uid://dek2lg53lpyc4" path="res://Graphics/GenericTileset.png" id="1_yabuj"]
@@ -12,6 +12,11 @@
 [ext_resource type="PackedScene" uid="uid://bv8fct1eu7vdj" path="res://Objects/Cloner.tscn" id="8_3sc8e"]
 [ext_resource type="PackedScene" uid="uid://hdct1bg8ky3i" path="res://Sprites/Sign.tscn" id="11_xcb7n"]
 [ext_resource type="Texture2D" uid="uid://yqa5vdxe8nqw" path="res://Graphics/Steel.png" id="12_51sbt"]
+[ext_resource type="Texture2D" uid="uid://4ucgj3g84kbl" path="res://Graphics/Silver.png" id="13_56te0"]
+[ext_resource type="Texture2D" uid="uid://ce31f7pl6e5t7" path="res://Graphics/Sulphur.png" id="14_o8021"]
+[ext_resource type="Texture2D" uid="uid://ivj3p0f68ije" path="res://Graphics/Mercury.png" id="15_x1swr"]
+[ext_resource type="Texture2D" uid="uid://x7i12f50brul" path="res://Graphics/Lead.png" id="16_e80oi"]
+[ext_resource type="PackedScene" uid="uid://3lo42gyhsayd" path="res://Objects/Goat.tscn" id="17_s1jmr"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_qsutw"]
 texture = ExtResource("1_yabuj")
@@ -180,7 +185,33 @@ target_node = NodePath("../Cloner")
 
 [node name="Sign" parent="." instance=ExtResource("11_xcb7n")]
 position = Vector2(-48, 32)
+alpha_factor = 0.7
 
 [node name="Sign2" parent="." instance=ExtResource("11_xcb7n")]
 position = Vector2(-144, -36)
 texture = ExtResource("12_51sbt")
+alpha_factor = 0.7
+
+[node name="Sign3" parent="." instance=ExtResource("11_xcb7n")]
+position = Vector2(-24, -29)
+texture = ExtResource("13_56te0")
+alpha_factor = 0.7
+
+[node name="Sign4" parent="." instance=ExtResource("11_xcb7n")]
+position = Vector2(16, -29)
+texture = ExtResource("14_o8021")
+alpha_factor = 0.7
+
+[node name="Sign5" parent="." instance=ExtResource("11_xcb7n")]
+position = Vector2(64, -29)
+texture = ExtResource("15_x1swr")
+alpha_factor = 0.7
+
+[node name="Sign6" parent="." instance=ExtResource("11_xcb7n")]
+position = Vector2(48, -96)
+texture = ExtResource("16_e80oi")
+alpha_factor = 0.7
+
+[node name="Goat" parent="." node_paths=PackedStringArray("target_node") instance=ExtResource("17_s1jmr")]
+target_node = NodePath("../Player")
+rotation_speed = 0.1

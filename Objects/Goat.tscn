@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://3lo42gyhsayd"]
+
+[ext_resource type="Script" path="res://Scripts/Goat.gd" id="1_w7bcc"]
+[ext_resource type="Texture2D" uid="uid://cp2mab3iyuk2c" path="res://Graphics/Goat_body.png" id="2_5nn8b"]
+[ext_resource type="Texture2D" uid="uid://djpv6spwhwhis" path="res://Graphics/Goat_head.png" id="3_xwyjf"]
+
+[node name="Goat" type="Node2D" node_paths=PackedStringArray("target_node")]
+position = Vector2(112, 39)
+script = ExtResource("1_w7bcc")
+target_node = NodePath("")
+
+[node name="body" type="Sprite2D" parent="."]
+texture = ExtResource("2_5nn8b")
+
+[node name="Head_node" type="Node2D" parent="."]
+position = Vector2(-1, -14)
+rotation = 1.5708
+
+[node name="head" type="Sprite2D" parent="Head_node"]
+rotation = -1.5708
+texture = ExtResource("3_xwyjf")
