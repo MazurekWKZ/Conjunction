@@ -1,0 +1,67 @@
+[gd_scene load_steps=10 format=3 uid="uid://cpjw8pcjl2mpi"]
+
+[ext_resource type="Texture2D" uid="uid://bnawlgx6i3s3m" path="res://Graphics/Menu/Title.png" id="1_wb0qo"]
+[ext_resource type="Script" path="res://Scripts/Menu/Title.gd" id="2_vh2ro"]
+[ext_resource type="Texture2D" uid="uid://dek2lg53lpyc4" path="res://Graphics/GenericTileset.png" id="3_hy2c7"]
+[ext_resource type="Texture2D" uid="uid://bajon7fkqvwnn" path="res://Graphics/Menu/BG_white.png" id="3_un7d2"]
+[ext_resource type="Texture2D" uid="uid://vx22gbjt7rwi" path="res://Graphics/Menu/Hint.png" id="5_ke3n0"]
+[ext_resource type="Texture2D" uid="uid://dvnkenqrjn5ax" path="res://Graphics/Menu/Begin.png" id="6_a414m"]
+[ext_resource type="Script" path="res://Scripts/Menu/Menu_handler.gd" id="6_o5kjt"]
+[ext_resource type="Texture2D" uid="uid://47srhk2mvvge" path="res://Graphics/Menu/Hold_r.png" id="6_tsc8a"]
+[ext_resource type="Texture2D" uid="uid://b2x47w82tsc0t" path="res://Graphics/Menu/Select.png" id="7_t47ly"]
+
+[node name="MainMenu" type="Node2D"]
+
+[node name="Visuals" type="Node2D" parent="."]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(2, 2)
+
+[node name="Title" type="Sprite2D" parent="."]
+position = Vector2(0, -64)
+texture = ExtResource("1_wb0qo")
+script = ExtResource("2_vh2ro")
+oscillation_amplitude = 5.0
+
+[node name="BG_color" type="Sprite2D" parent="."]
+z_index = -1000
+position = Vector2(-7.62939e-06, 6.19888e-06)
+scale = Vector2(640, 352)
+texture = ExtResource("3_un7d2")
+
+[node name="Background" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.054902)
+z_index = -1
+position = Vector2(0, -7.7486e-06)
+scale = Vector2(18, 20.125)
+texture = ExtResource("3_hy2c7")
+region_enabled = true
+region_rect = Rect2(64, 0, 32, 16)
+
+[node name="Hint" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.678431)
+position = Vector2(96, 0)
+rotation = 0.261799
+texture = ExtResource("5_ke3n0")
+
+[node name="Hint2" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.678431)
+position = Vector2(-112, 32)
+rotation = -0.261799
+texture = ExtResource("6_tsc8a")
+
+[node name="Menu_handler" type="Node2D" parent="."]
+position = Vector2(0, 52)
+script = ExtResource("6_o5kjt")
+
+[node name="Begin" type="Sprite2D" parent="Menu_handler"]
+position = Vector2(0, 16)
+texture = ExtResource("6_a414m")
+
+[node name="Level" type="Sprite2D" parent="Menu_handler"]
+position = Vector2(0, 48)
+texture = ExtResource("7_t47ly")
+
+[node name="Level_selector" type="Node2D" parent="Menu_handler"]
+
+[node name="Level_icon" type="Sprite2D" parent="Menu_handler/Level_selector"]
