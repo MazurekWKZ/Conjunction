@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://y6spc1e14ksm"]
+[gd_scene load_steps=23 format=3 uid="uid://y6spc1e14ksm"]
 
 [ext_resource type="Texture2D" uid="uid://2wp0uad4bge3" path="res://Graphics/MapTileset_visual.png" id="1_33e3j"]
 [ext_resource type="Script" path="res://Scripts/Menu/ExitHandler.gd" id="1_wtvau"]
@@ -19,6 +19,7 @@
 [ext_resource type="Texture2D" uid="uid://ivj3p0f68ije" path="res://Graphics/Mercury.png" id="15_x1swr"]
 [ext_resource type="Texture2D" uid="uid://x7i12f50brul" path="res://Graphics/Lead.png" id="16_e80oi"]
 [ext_resource type="PackedScene" uid="uid://3lo42gyhsayd" path="res://Objects/Goat.tscn" id="17_s1jmr"]
+[ext_resource type="AudioStream" uid="uid://dvltovrs1dq3b" path="res://Music/Background_music.mp3" id="20_i75hq"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_qsutw"]
 texture = ExtResource("1_yabuj")
@@ -49,6 +50,10 @@ sources/0 = SubResource("TileSetAtlasSource_qsutw")
 [node name="Level" type="Node2D"]
 z_as_relative = false
 y_sort_enabled = true
+
+[node name="Background_music" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("20_i75hq")
+autoplay = true
 
 [node name="ExitHandler" type="Node2D" parent="."]
 script = ExtResource("1_wtvau")
