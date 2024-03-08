@@ -1,6 +1,8 @@
-[gd_scene load_steps=10 format=3 uid="uid://cpjw8pcjl2mpi"]
+[gd_scene load_steps=12 format=3 uid="uid://cpjw8pcjl2mpi"]
 
+[ext_resource type="PackedScene" uid="uid://c5jqm5klqmyqp" path="res://Shaders/effect_layer.tscn" id="1_rf80s"]
 [ext_resource type="Texture2D" uid="uid://bnawlgx6i3s3m" path="res://Graphics/Menu/Title.png" id="1_wb0qo"]
+[ext_resource type="Texture2D" uid="uid://deqkgxpntioog" path="res://Graphics/Effects/Vignette.png" id="2_ldhiq"]
 [ext_resource type="Script" path="res://Scripts/Menu/Title.gd" id="2_vh2ro"]
 [ext_resource type="Texture2D" uid="uid://dek2lg53lpyc4" path="res://Graphics/GenericTileset.png" id="3_hy2c7"]
 [ext_resource type="Texture2D" uid="uid://bajon7fkqvwnn" path="res://Graphics/Menu/BG_white.png" id="3_un7d2"]
@@ -11,6 +13,14 @@
 [ext_resource type="Texture2D" uid="uid://b2x47w82tsc0t" path="res://Graphics/Menu/Select.png" id="7_t47ly"]
 
 [node name="MainMenu" type="Node2D"]
+
+[node name="EffectLayer" parent="." instance=ExtResource("1_rf80s")]
+
+[node name="Vignette" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.14902)
+position = Vector2(1.52588e-05, 3.8147e-06)
+scale = Vector2(5, 2.75)
+texture = ExtResource("2_ldhiq")
 
 [node name="Visuals" type="Node2D" parent="."]
 

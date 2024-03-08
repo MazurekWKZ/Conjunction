@@ -1,6 +1,7 @@
-[gd_scene load_steps=23 format=3 uid="uid://y6spc1e14ksm"]
+[gd_scene load_steps=24 format=3 uid="uid://y6spc1e14ksm"]
 
 [ext_resource type="Texture2D" uid="uid://2wp0uad4bge3" path="res://Graphics/MapTileset_visual.png" id="1_33e3j"]
+[ext_resource type="PackedScene" uid="uid://c5jqm5klqmyqp" path="res://Shaders/effect_layer.tscn" id="1_nvnf8"]
 [ext_resource type="Script" path="res://Scripts/Menu/ExitHandler.gd" id="1_wtvau"]
 [ext_resource type="Texture2D" uid="uid://dek2lg53lpyc4" path="res://Graphics/GenericTileset.png" id="1_yabuj"]
 [ext_resource type="Texture2D" uid="uid://deqkgxpntioog" path="res://Graphics/Effects/Vignette.png" id="2_o1c3i"]
@@ -51,6 +52,8 @@ sources/0 = SubResource("TileSetAtlasSource_qsutw")
 z_as_relative = false
 y_sort_enabled = true
 
+[node name="EffectLayer" parent="." instance=ExtResource("1_nvnf8")]
+
 [node name="Background_music" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("20_i75hq")
 autoplay = true
@@ -84,7 +87,9 @@ position = Vector2(1.00001, -1.00001)
 scale = Vector2(4.5, 2.5)
 texture = ExtResource("2_o1c3i")
 
-[node name="Sprite2D" type="Sprite2D" parent="Visuals"]
+[node name="Walls" type="Node2D" parent="Visuals"]
+
+[node name="Sprite2D" type="Sprite2D" parent="Visuals/Walls"]
 z_as_relative = false
 texture_filter = 1
 position = Vector2(-112, -1)
@@ -92,7 +97,7 @@ texture = ExtResource("1_33e3j")
 region_enabled = true
 region_rect = Rect2(0, 0, 32, 32)
 
-[node name="Sprite2D2" type="Sprite2D" parent="Visuals"]
+[node name="Sprite2D2" type="Sprite2D" parent="Visuals/Walls"]
 z_as_relative = false
 texture_filter = 1
 position = Vector2(-207, -65)
@@ -100,7 +105,7 @@ texture = ExtResource("1_33e3j")
 region_enabled = true
 region_rect = Rect2(0, 0, 32, 32)
 
-[node name="Sprite2D7" type="Sprite2D" parent="Visuals"]
+[node name="Sprite2D7" type="Sprite2D" parent="Visuals/Walls"]
 z_as_relative = false
 texture_filter = 1
 position = Vector2(81, -65)
@@ -108,7 +113,7 @@ texture = ExtResource("1_33e3j")
 region_enabled = true
 region_rect = Rect2(64, 0, 32, 32)
 
-[node name="Sprite2D3" type="Sprite2D" parent="Visuals"]
+[node name="Sprite2D3" type="Sprite2D" parent="Visuals/Walls"]
 z_as_relative = false
 texture_filter = 1
 position = Vector2(-159, -65)
@@ -116,7 +121,7 @@ texture = ExtResource("1_33e3j")
 region_enabled = true
 region_rect = Rect2(32, 0, 64, 32)
 
-[node name="Sprite2D4" type="Sprite2D" parent="Visuals"]
+[node name="Sprite2D4" type="Sprite2D" parent="Visuals/Walls"]
 z_as_relative = false
 texture_filter = 1
 position = Vector2(-95, -65)
@@ -124,7 +129,7 @@ texture = ExtResource("1_33e3j")
 region_enabled = true
 region_rect = Rect2(32, 0, 64, 32)
 
-[node name="Sprite2D5" type="Sprite2D" parent="Visuals"]
+[node name="Sprite2D5" type="Sprite2D" parent="Visuals/Walls"]
 z_as_relative = false
 texture_filter = 1
 position = Vector2(-31, -65)
@@ -132,7 +137,7 @@ texture = ExtResource("1_33e3j")
 region_enabled = true
 region_rect = Rect2(32, 0, 64, 32)
 
-[node name="Sprite2D6" type="Sprite2D" parent="Visuals"]
+[node name="Sprite2D6" type="Sprite2D" parent="Visuals/Walls"]
 z_as_relative = false
 texture_filter = 1
 position = Vector2(33, -65)
@@ -140,7 +145,7 @@ texture = ExtResource("1_33e3j")
 region_enabled = true
 region_rect = Rect2(32, 0, 64, 32)
 
-[node name="Sprite2D8" type="Sprite2D" parent="Visuals"]
+[node name="Sprite2D8" type="Sprite2D" parent="Visuals/Walls"]
 z_as_relative = false
 texture_filter = 1
 position = Vector2(113, -65)
@@ -148,9 +153,11 @@ texture = ExtResource("1_33e3j")
 region_enabled = true
 region_rect = Rect2(224, 0, 32, 32)
 
-[node name="AnimatedSprite2D" parent="Visuals" instance=ExtResource("3_0lec7")]
+[node name="Holes" type="Node2D" parent="Visuals"]
 
-[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="Visuals"]
+[node name="AnimatedSprite2D" parent="Visuals/Holes" instance=ExtResource("3_0lec7")]
+
+[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="Visuals/Holes"]
 z_index = -1
 z_as_relative = false
 texture_filter = 1
@@ -158,6 +165,44 @@ position = Vector2(-207, 31)
 sprite_frames = ExtResource("3_7k6n4")
 animation = &"Wiggle"
 autoplay = "Wiggle"
+
+[node name="Characters" type="Node2D" parent="Visuals"]
+
+[node name="Goat" parent="Visuals/Characters" node_paths=PackedStringArray("target_node") instance=ExtResource("17_s1jmr")]
+position = Vector2(113, 38)
+target_node = NodePath("../../../Player")
+rotation_speed = 0.1
+
+[node name="Markers" type="Node2D" parent="Visuals"]
+
+[node name="Sign" parent="Visuals/Markers" instance=ExtResource("11_xcb7n")]
+position = Vector2(-47, 31)
+alpha_factor = 0.7
+
+[node name="Sign2" parent="Visuals/Markers" instance=ExtResource("11_xcb7n")]
+position = Vector2(-143, -37)
+texture = ExtResource("12_51sbt")
+alpha_factor = 0.7
+
+[node name="Sign3" parent="Visuals/Markers" instance=ExtResource("11_xcb7n")]
+position = Vector2(-23, -30)
+texture = ExtResource("13_56te0")
+alpha_factor = 0.7
+
+[node name="Sign4" parent="Visuals/Markers" instance=ExtResource("11_xcb7n")]
+position = Vector2(17, -30)
+texture = ExtResource("14_o8021")
+alpha_factor = 0.7
+
+[node name="Sign5" parent="Visuals/Markers" instance=ExtResource("11_xcb7n")]
+position = Vector2(65, -30)
+texture = ExtResource("15_x1swr")
+alpha_factor = 0.7
+
+[node name="Sign6" parent="Visuals/Markers" instance=ExtResource("11_xcb7n")]
+position = Vector2(49, -97)
+texture = ExtResource("16_e80oi")
+alpha_factor = 0.7
 
 [node name="Player" parent="." instance=ExtResource("3_d4l31")]
 
@@ -199,36 +244,3 @@ target_node = NodePath("../Cloner2")
 position = Vector2(-80, -24)
 scene_reference = NodePath("..")
 target_node = NodePath("../Cloner")
-
-[node name="Sign" parent="." instance=ExtResource("11_xcb7n")]
-position = Vector2(-48, 32)
-alpha_factor = 0.7
-
-[node name="Sign2" parent="." instance=ExtResource("11_xcb7n")]
-position = Vector2(-144, -36)
-texture = ExtResource("12_51sbt")
-alpha_factor = 0.7
-
-[node name="Sign3" parent="." instance=ExtResource("11_xcb7n")]
-position = Vector2(-24, -29)
-texture = ExtResource("13_56te0")
-alpha_factor = 0.7
-
-[node name="Sign4" parent="." instance=ExtResource("11_xcb7n")]
-position = Vector2(16, -29)
-texture = ExtResource("14_o8021")
-alpha_factor = 0.7
-
-[node name="Sign5" parent="." instance=ExtResource("11_xcb7n")]
-position = Vector2(64, -29)
-texture = ExtResource("15_x1swr")
-alpha_factor = 0.7
-
-[node name="Sign6" parent="." instance=ExtResource("11_xcb7n")]
-position = Vector2(48, -96)
-texture = ExtResource("16_e80oi")
-alpha_factor = 0.7
-
-[node name="Goat" parent="." node_paths=PackedStringArray("target_node") instance=ExtResource("17_s1jmr")]
-target_node = NodePath("../Player")
-rotation_speed = 0.1

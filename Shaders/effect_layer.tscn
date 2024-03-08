@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://c5jqm5klqmyqp"]
+
+[ext_resource type="Shader" path="res://Shaders/Screen.gdshader" id="1_fivr5"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_hmsxy"]
+shader = ExtResource("1_fivr5")
+shader_parameter/luma_threshold = 0.0
+
+[node name="EffectLayer" type="CanvasLayer"]
+
+[node name="Fade" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_hmsxy")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
