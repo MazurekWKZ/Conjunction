@@ -1,0 +1,15 @@
+extends LevelControler
+
+@onready var button_1 = $"../GateButton"
+@onready var button_2 = $"../GateButton2"
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	gate.state = "closed"
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+	if button_1.state == "pressed" && button_2.state == "pressed":
+		gate.state = "open"
