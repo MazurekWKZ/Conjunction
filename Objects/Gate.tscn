@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=3 uid="uid://cpmnlu2ecycaj"]
+
+[ext_resource type="Script" path="res://Scripts/Gate.gd" id="1_jcl77"]
+[ext_resource type="Texture2D" uid="uid://dweuoijw73shn" path="res://Graphics/GateFrame.png" id="2_bdau3"]
+[ext_resource type="Texture2D" uid="uid://baigrvxl4oaj" path="res://Graphics/GateDoor.png" id="3_n4qyg"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_krr3p"]
+size = Vector2(16, 16)
+
+[node name="Gate" type="Node2D"]
+position = Vector2(143, -56)
+script = ExtResource("1_jcl77")
+
+[node name="GateArea" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 4
+
+[node name="GateShape" type="CollisionShape2D" parent="GateArea"]
+position = Vector2(0, -8)
+shape = SubResource("RectangleShape2D_krr3p")
+
+[node name="GateFrame" type="Sprite2D" parent="."]
+position = Vector2(0, -18.5)
+scale = Vector2(1, 0.828125)
+texture = ExtResource("2_bdau3")
+
+[node name="GateDoor" type="Sprite2D" parent="."]
+position = Vector2(0, -21.34)
+scale = Vector2(1, 0.828)
+texture = ExtResource("3_n4qyg")

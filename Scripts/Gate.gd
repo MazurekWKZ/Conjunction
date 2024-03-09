@@ -1,10 +1,9 @@
-class_name Gate extends Area2D
+class_name Gate extends Node2D
 
-@onready var exit_handler = $"../../ExitHandler"
-@onready var gate_sprite = $"../GateDoor"
-@onready var tile_map = $"../../TileMap"
-
-@export var connected_button: GateButton
+@onready var exit_handler = $"../ExitHandler"
+@onready var gate_sprite = $"GateDoor"
+@onready var tile_map = $"../TileMap"
+@onready var collider = $GateArea
 @export var next_level_path = "res://Levels/MainMenu.tscn"
 @export var number_of_players = 1
 
@@ -17,10 +16,10 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	if has_overlapping_areas() && state == "open":
+	if collider.has_overlapping_areas() && state == "open":
 		var counted_players = 0
-		if get_overlapping_areas().size() == number_of_players:
-			var collided_areas = get_overlapping_areas()
+		if collider.get_overlapping_areas().size() == number_of_players:
+			var collided_areas = collider.get_overlapping_areas()
 			for collided_area in collided_areas:
 				var collided_node = collided_area.get_parent()
 				if collided_node is Player && !entered:
@@ -28,13 +27,7 @@ func _process(delta):
 			if counted_players == number_of_players:
 				entered = true
 				exit_handler.next_level(next_level_path)
-	
-	if connected_button != null:
-		if connected_button.state == "pressed":
-			state = "open"
-		else:
-			state = "closed"
-	
+
 	var current_tile: Vector2i = tile_map.local_to_map(global_position)
 	var tile_data: TileData = tile_map.get_cell_tile_data(0, current_tile)
 	

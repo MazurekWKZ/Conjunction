@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://y6spc1e14ksm"]
+[gd_scene load_steps=26 format=3 uid="uid://y6spc1e14ksm"]
 
 [ext_resource type="Texture2D" uid="uid://2wp0uad4bge3" path="res://Graphics/MapTileset_visual.png" id="1_33e3j"]
 [ext_resource type="PackedScene" uid="uid://c5jqm5klqmyqp" path="res://Shaders/effect_layer.tscn" id="1_nvnf8"]
@@ -21,9 +21,8 @@
 [ext_resource type="Texture2D" uid="uid://x7i12f50brul" path="res://Graphics/Lead.png" id="16_e80oi"]
 [ext_resource type="PackedScene" uid="uid://3lo42gyhsayd" path="res://Objects/Goat.tscn" id="17_s1jmr"]
 [ext_resource type="AudioStream" uid="uid://dvltovrs1dq3b" path="res://Music/Background_music.mp3" id="20_i75hq"]
-[ext_resource type="Script" path="res://Scripts/GateArea.gd" id="22_jci8f"]
-[ext_resource type="Texture2D" uid="uid://dweuoijw73shn" path="res://Graphics/GateFrame.png" id="23_xyp0u"]
-[ext_resource type="Texture2D" uid="uid://baigrvxl4oaj" path="res://Graphics/GateDoor.png" id="24_ulkxi"]
+[ext_resource type="PackedScene" uid="uid://cpmnlu2ecycaj" path="res://Objects/Gate.tscn" id="22_ifdje"]
+[ext_resource type="Script" path="res://Scripts/LevelScripts/TestLevelControler.gd" id="23_xwlv5"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_qsutw"]
 texture = ExtResource("1_yabuj")
@@ -51,9 +50,6 @@ custom_data_layer_2/name = "hole"
 custom_data_layer_2/type = 1
 sources/0 = SubResource("TileSetAtlasSource_qsutw")
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_krr3p"]
-size = Vector2(16, 16)
-
 [node name="Level" type="Node2D"]
 z_as_relative = false
 y_sort_enabled = true
@@ -69,6 +65,11 @@ script = ExtResource("1_wtvau")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(2, 2)
+
+[node name="LevelControler" type="Node2D" parent="."]
+script = ExtResource("23_xwlv5")
+
+[node name="Gate" parent="." instance=ExtResource("22_ifdje")]
 
 [node name="TileMap" type="TileMap" parent="."]
 z_as_relative = false
@@ -259,26 +260,3 @@ target_node = NodePath("../Cloner2")
 position = Vector2(-80, -24)
 scene_reference = NodePath("..")
 target_node = NodePath("../Cloner")
-
-[node name="Gate" type="Node2D" parent="."]
-position = Vector2(143, -56)
-
-[node name="GateArea" type="Area2D" parent="Gate" node_paths=PackedStringArray("connected_button")]
-collision_layer = 4
-collision_mask = 4
-script = ExtResource("22_jci8f")
-connected_button = NodePath("../../GateButton")
-
-[node name="GateShape" type="CollisionShape2D" parent="Gate/GateArea"]
-position = Vector2(0, -8)
-shape = SubResource("RectangleShape2D_krr3p")
-
-[node name="GateFrame" type="Sprite2D" parent="Gate"]
-position = Vector2(0, -18.5)
-scale = Vector2(1, 0.828125)
-texture = ExtResource("23_xyp0u")
-
-[node name="GateDoor" type="Sprite2D" parent="Gate"]
-position = Vector2(0, -21.34)
-scale = Vector2(1, 0.828)
-texture = ExtResource("24_ulkxi")

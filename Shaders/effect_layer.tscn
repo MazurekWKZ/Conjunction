@@ -5,6 +5,7 @@
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_hmsxy"]
 shader = ExtResource("1_fivr5")
 shader_parameter/luma_threshold = 0.0
+shader_parameter/tint = Color(1, 1, 1, 1)
 
 [node name="EffectLayer" type="CanvasLayer"]
 
