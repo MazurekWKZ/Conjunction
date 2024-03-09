@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://y6spc1e14ksm"]
+[gd_scene load_steps=28 format=3 uid="uid://y6spc1e14ksm"]
 
 [ext_resource type="Texture2D" uid="uid://2wp0uad4bge3" path="res://Graphics/MapTileset_visual.png" id="1_33e3j"]
 [ext_resource type="PackedScene" uid="uid://c5jqm5klqmyqp" path="res://Shaders/effect_layer.tscn" id="1_nvnf8"]
@@ -21,6 +21,9 @@
 [ext_resource type="Texture2D" uid="uid://x7i12f50brul" path="res://Graphics/Lead.png" id="16_e80oi"]
 [ext_resource type="PackedScene" uid="uid://3lo42gyhsayd" path="res://Objects/Goat.tscn" id="17_s1jmr"]
 [ext_resource type="AudioStream" uid="uid://dvltovrs1dq3b" path="res://Music/Background_music.mp3" id="20_i75hq"]
+[ext_resource type="Script" path="res://Scripts/GateArea.gd" id="22_jci8f"]
+[ext_resource type="Texture2D" uid="uid://dweuoijw73shn" path="res://Graphics/GateFrame.png" id="23_xyp0u"]
+[ext_resource type="Texture2D" uid="uid://baigrvxl4oaj" path="res://Graphics/GateDoor.png" id="24_ulkxi"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_qsutw"]
 texture = ExtResource("1_yabuj")
@@ -47,6 +50,9 @@ custom_data_layer_1/type = 1
 custom_data_layer_2/name = "hole"
 custom_data_layer_2/type = 1
 sources/0 = SubResource("TileSetAtlasSource_qsutw")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_krr3p"]
+size = Vector2(16, 16)
 
 [node name="Level" type="Node2D"]
 z_as_relative = false
@@ -83,11 +89,14 @@ position = Vector2(-1, 1)
 [node name="Vignette" type="Sprite2D" parent="Visuals"]
 modulate = Color(1, 1, 1, 0.235294)
 z_index = 999
+z_as_relative = false
 position = Vector2(1.00001, -1.00001)
 scale = Vector2(4.5, 2.5)
 texture = ExtResource("2_o1c3i")
 
 [node name="Walls" type="Node2D" parent="Visuals"]
+z_as_relative = false
+y_sort_enabled = true
 
 [node name="Sprite2D" type="Sprite2D" parent="Visuals/Walls"]
 z_as_relative = false
@@ -154,6 +163,8 @@ region_enabled = true
 region_rect = Rect2(224, 0, 32, 32)
 
 [node name="Holes" type="Node2D" parent="Visuals"]
+z_as_relative = false
+y_sort_enabled = true
 
 [node name="AnimatedSprite2D" parent="Visuals/Holes" instance=ExtResource("3_0lec7")]
 
@@ -167,6 +178,8 @@ animation = &"Wiggle"
 autoplay = "Wiggle"
 
 [node name="Characters" type="Node2D" parent="Visuals"]
+z_as_relative = false
+y_sort_enabled = true
 
 [node name="Goat" parent="Visuals/Characters" node_paths=PackedStringArray("target_node") instance=ExtResource("17_s1jmr")]
 position = Vector2(113, 38)
@@ -174,6 +187,8 @@ target_node = NodePath("../../../Player")
 rotation_speed = 0.1
 
 [node name="Markers" type="Node2D" parent="Visuals"]
+z_as_relative = false
+y_sort_enabled = true
 
 [node name="Sign" parent="Visuals/Markers" instance=ExtResource("11_xcb7n")]
 position = Vector2(-47, 31)
@@ -244,3 +259,26 @@ target_node = NodePath("../Cloner2")
 position = Vector2(-80, -24)
 scene_reference = NodePath("..")
 target_node = NodePath("../Cloner")
+
+[node name="Gate" type="Node2D" parent="."]
+position = Vector2(143, -56)
+
+[node name="GateArea" type="Area2D" parent="Gate" node_paths=PackedStringArray("connected_button")]
+collision_layer = 4
+collision_mask = 4
+script = ExtResource("22_jci8f")
+connected_button = NodePath("../../GateButton")
+
+[node name="GateShape" type="CollisionShape2D" parent="Gate/GateArea"]
+position = Vector2(0, -8)
+shape = SubResource("RectangleShape2D_krr3p")
+
+[node name="GateFrame" type="Sprite2D" parent="Gate"]
+position = Vector2(0, -18.5)
+scale = Vector2(1, 0.828125)
+texture = ExtResource("23_xyp0u")
+
+[node name="GateDoor" type="Sprite2D" parent="Gate"]
+position = Vector2(0, -21.34)
+scale = Vector2(1, 0.828)
+texture = ExtResource("24_ulkxi")
