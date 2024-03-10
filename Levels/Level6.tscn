@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://bj8h7op6y85xq"]
+[gd_scene load_steps=20 format=3 uid="uid://bj8h7op6y85xq"]
 
 [ext_resource type="PackedScene" uid="uid://c5jqm5klqmyqp" path="res://Shaders/effect_layer.tscn" id="1_jwlwm"]
 [ext_resource type="AudioStream" uid="uid://dvltovrs1dq3b" path="res://Music/Background_music.mp3" id="2_2ttv1"]
@@ -12,10 +12,6 @@
 [ext_resource type="SpriteFrames" uid="uid://caki7lkf224vc" path="res://Animation/Tentacles_sprite_frames.tres" id="10_t6ny6"]
 [ext_resource type="PackedScene" uid="uid://3lo42gyhsayd" path="res://Objects/Goat.tscn" id="11_e7h46"]
 [ext_resource type="PackedScene" uid="uid://hdct1bg8ky3i" path="res://Sprites/Sign.tscn" id="12_qkr5s"]
-[ext_resource type="Texture2D" uid="uid://yqa5vdxe8nqw" path="res://Graphics/Steel.png" id="13_vgetb"]
-[ext_resource type="Texture2D" uid="uid://4ucgj3g84kbl" path="res://Graphics/Silver.png" id="14_djscm"]
-[ext_resource type="Texture2D" uid="uid://ce31f7pl6e5t7" path="res://Graphics/Sulphur.png" id="15_6qxf6"]
-[ext_resource type="Texture2D" uid="uid://ivj3p0f68ije" path="res://Graphics/Mercury.png" id="16_07iro"]
 [ext_resource type="Texture2D" uid="uid://x7i12f50brul" path="res://Graphics/Lead.png" id="17_xfg0f"]
 [ext_resource type="PackedScene" uid="uid://b7is0s84nwqag" path="res://Objects/Player.tscn" id="18_0xmpl"]
 [ext_resource type="PackedScene" uid="uid://bpprpe8id6jbu" path="res://Objects/GateButton.tscn" id="20_42q63"]
@@ -69,6 +65,7 @@ script = ExtResource("4_agys3")
 
 [node name="Gate" parent="." instance=ExtResource("5_vptt1")]
 position = Vector2(-240, -104)
+next_level_path = "res://Levels/Level7.tscn"
 number_of_players = 2
 
 [node name="TileMap" type="TileMap" parent="."]
@@ -190,38 +187,8 @@ target_node = NodePath("../../../Player")
 rotation_speed = 0.1
 
 [node name="Markers" type="Node2D" parent="Visuals"]
-visible = false
 z_as_relative = false
 y_sort_enabled = true
-
-[node name="Sign" parent="Visuals/Markers" instance=ExtResource("12_qkr5s")]
-position = Vector2(-47, 31)
-alpha_factor = 0.7
-
-[node name="Sign2" parent="Visuals/Markers" instance=ExtResource("12_qkr5s")]
-position = Vector2(-143, -37)
-texture = ExtResource("13_vgetb")
-alpha_factor = 0.7
-
-[node name="Sign3" parent="Visuals/Markers" instance=ExtResource("12_qkr5s")]
-position = Vector2(-23, -30)
-texture = ExtResource("14_djscm")
-alpha_factor = 0.7
-
-[node name="Sign4" parent="Visuals/Markers" instance=ExtResource("12_qkr5s")]
-position = Vector2(17, -30)
-texture = ExtResource("15_6qxf6")
-alpha_factor = 0.7
-
-[node name="Sign5" parent="Visuals/Markers" instance=ExtResource("12_qkr5s")]
-position = Vector2(65, -30)
-texture = ExtResource("16_07iro")
-alpha_factor = 0.7
-
-[node name="Sign6" parent="Visuals/Markers" instance=ExtResource("12_qkr5s")]
-position = Vector2(49, -97)
-texture = ExtResource("17_xfg0f")
-alpha_factor = 0.7
 
 [node name="Player" parent="." instance=ExtResource("18_0xmpl")]
 position = Vector2(208, 152)
@@ -243,10 +210,22 @@ sibling_node = NodePath("../BlockEntangled2")
 position = Vector2(48, 120)
 sibling_node = NodePath("../BlockEntangled")
 
-[node name="PortalAB" parent="." node_paths=PackedStringArray("target_node") instance=ExtResource("21_cy54m")]
+[node name="PortalAB" parent="." node_paths=PackedStringArray("target_node", "marker_sprite") instance=ExtResource("21_cy54m")]
 position = Vector2(-144, 56)
 target_node = NodePath("../PortalBA")
+marker_sprite = NodePath("Sign6")
 
-[node name="PortalBA" parent="." node_paths=PackedStringArray("target_node") instance=ExtResource("21_cy54m")]
+[node name="Sign6" parent="PortalAB" instance=ExtResource("12_qkr5s")]
+position = Vector2(0, -8)
+texture = ExtResource("17_xfg0f")
+alpha_factor = 0.7
+
+[node name="PortalBA" parent="." node_paths=PackedStringArray("target_node", "marker_sprite") instance=ExtResource("21_cy54m")]
 position = Vector2(144, -104)
 target_node = NodePath("../PortalAB")
+marker_sprite = NodePath("Sign7")
+
+[node name="Sign7" parent="PortalBA" instance=ExtResource("12_qkr5s")]
+position = Vector2(0, -8)
+texture = ExtResource("17_xfg0f")
+alpha_factor = 0.7

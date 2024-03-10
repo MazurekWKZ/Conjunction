@@ -67,6 +67,7 @@ script = ExtResource("4_uu2u5")
 
 [node name="Gate" parent="." instance=ExtResource("5_3m5pb")]
 position = Vector2(240, -71)
+next_level_path = "res://Levels/Level3.tscn"
 
 [node name="TileMap" type="TileMap" parent="."]
 z_as_relative = false

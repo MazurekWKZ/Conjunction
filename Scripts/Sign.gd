@@ -1,4 +1,4 @@
-extends Sprite2D
+class_name SignSprite extends Sprite2D
 
 @export var offset_factor = 3
 @export var offset_speed = 1.0

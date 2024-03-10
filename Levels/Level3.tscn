@@ -218,6 +218,7 @@ alpha_factor = 0.7
 
 [node name="Gate" parent="." instance=ExtResource("5_4prgw")]
 position = Vector2(-144, -103)
+next_level_path = "res://Levels/Level4.tscn"
 
 [node name="Player" parent="." instance=ExtResource("18_7kyim")]
 position = Vector2(80, 152)

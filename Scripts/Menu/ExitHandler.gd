@@ -4,6 +4,7 @@ extends Node2D
 @onready var audio_stream = $"../Background_music"
 @onready var fade_effect = $"../EffectLayer/".get_child(0)
 @onready var current_scene_path = get_tree().current_scene.scene_file_path
+
 @onready var next_scene_path = main_menu_path
 
 var retry_timeout = 1.0
@@ -42,6 +43,7 @@ func _process(delta):
 	
 	if fade > 1 + exit_offset:
 		get_tree().change_scene_to_file(next_scene_path)
+		print("exiting to:" + next_scene_path)
 	
 
 func _input(event):
@@ -55,6 +57,7 @@ func _input(event):
 			target_volume_db = 0.0
 			
 	if event.is_action_pressed("ui_cancel"):
+		next_scene_path = main_menu_path
 		target_volume_db = -40.0
 		target_fade = 1.0
 		

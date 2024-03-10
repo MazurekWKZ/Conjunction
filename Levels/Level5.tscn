@@ -66,6 +66,7 @@ script = ExtResource("4_abm6f")
 
 [node name="Gate" parent="." instance=ExtResource("5_731pq")]
 position = Vector2(175, -104)
+next_level_path = "res://Levels/Level6.tscn"
 number_of_players = 2
 
 [node name="TileMap" type="TileMap" parent="."]
@@ -192,24 +193,6 @@ rotation_speed = 0.1
 z_as_relative = false
 y_sort_enabled = true
 
-[node name="Sign" parent="Visuals/Markers" instance=ExtResource("12_7ib6d")]
-position = Vector2(-47, 63)
-alpha_factor = 0.7
-
-[node name="Sign2" parent="Visuals/Markers" instance=ExtResource("12_7ib6d")]
-position = Vector2(-111, -97)
-alpha_factor = 0.7
-
-[node name="Sign5" parent="Visuals/Markers" instance=ExtResource("12_7ib6d")]
-position = Vector2(113, 63)
-texture = ExtResource("16_1sak5")
-alpha_factor = 0.7
-
-[node name="Sign6" parent="Visuals/Markers" instance=ExtResource("12_7ib6d")]
-position = Vector2(-47, -97)
-texture = ExtResource("16_1sak5")
-alpha_factor = 0.7
-
 [node name="Player" parent="." instance=ExtResource("18_12en1")]
 position = Vector2(-208, 152)
 
@@ -219,21 +202,43 @@ position = Vector2(208, 24)
 [node name="GateButton" parent="." instance=ExtResource("20_t3jit")]
 position = Vector2(209, -8)
 
-[node name="PortalAB" parent="." node_paths=PackedStringArray("target_node") instance=ExtResource("21_7k0w4")]
+[node name="PortalAB" parent="." node_paths=PackedStringArray("target_node", "marker_sprite") instance=ExtResource("21_7k0w4")]
 position = Vector2(-112, -88)
 target_node = NodePath("../PortalBA")
+marker_sprite = NodePath("Sign2")
 
-[node name="PortalBA" parent="." node_paths=PackedStringArray("target_node") instance=ExtResource("21_7k0w4")]
+[node name="Sign2" parent="PortalAB" instance=ExtResource("12_7ib6d")]
+position = Vector2(0, -8)
+alpha_factor = 0.7
+
+[node name="PortalBA" parent="." node_paths=PackedStringArray("target_node", "marker_sprite") instance=ExtResource("21_7k0w4")]
 position = Vector2(-48, 72)
 target_node = NodePath("../PortalAB")
+marker_sprite = NodePath("Sign")
 
-[node name="PortalCD" parent="." node_paths=PackedStringArray("target_node") instance=ExtResource("21_7k0w4")]
+[node name="Sign" parent="PortalBA" instance=ExtResource("12_7ib6d")]
+position = Vector2(0, -8)
+alpha_factor = 0.7
+
+[node name="PortalCD" parent="." node_paths=PackedStringArray("target_node", "marker_sprite") instance=ExtResource("21_7k0w4")]
 position = Vector2(112, 72)
 target_node = NodePath("../PortalDC")
+marker_sprite = NodePath("Sign5")
 
-[node name="PortalDC" parent="." node_paths=PackedStringArray("target_node") instance=ExtResource("21_7k0w4")]
+[node name="Sign5" parent="PortalCD" instance=ExtResource("12_7ib6d")]
+position = Vector2(0, -8)
+texture = ExtResource("16_1sak5")
+alpha_factor = 0.7
+
+[node name="PortalDC" parent="." node_paths=PackedStringArray("target_node", "marker_sprite") instance=ExtResource("21_7k0w4")]
 position = Vector2(-48, -88)
 target_node = NodePath("../PortalCD")
+marker_sprite = NodePath("Sign6")
+
+[node name="Sign6" parent="PortalDC" instance=ExtResource("12_7ib6d")]
+position = Vector2(0, -8)
+texture = ExtResource("16_1sak5")
+alpha_factor = 0.7
 
 [node name="Cloner" parent="." node_paths=PackedStringArray("scene_reference", "target_node") instance=ExtResource("23_a7esq")]
 position = Vector2(-112, 72)
