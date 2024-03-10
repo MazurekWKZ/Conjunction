@@ -50,7 +50,7 @@ func _input(event):
 	if event is InputEventKey and event.is_pressed():
 		if event.keycode == KEY_R:
 			timer_enabled = true
-			target_volume_db = -40.0
+			target_volume_db = -60.0
 	if event is InputEventKey and event.is_released():
 		if event.keycode == KEY_R:
 			timer_enabled = false
@@ -58,11 +58,11 @@ func _input(event):
 			
 	if event.is_action_pressed("ui_cancel"):
 		next_scene_path = main_menu_path
-		target_volume_db = -40.0
+		target_volume_db = -60.0
 		target_fade = 1.0
 		
 
 func next_level(scene_path: String):
 	next_scene_path = scene_path
-	target_volume_db = -40.0
+	target_volume_db = -60.0
 	target_fade = 1.0	

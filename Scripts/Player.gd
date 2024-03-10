@@ -10,10 +10,14 @@ class_name Player extends Node2D
 var is_moving = false
 var is_pushing = false
 var target_position
+var player_state = "alive"
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	if is_moving:
+		return
+	if player_state == "dead":
+		sprite_player.play("dead")
 		return
 		
 	if Input.is_action_pressed("ui_up"):

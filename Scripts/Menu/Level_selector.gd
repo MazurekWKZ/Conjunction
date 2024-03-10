@@ -3,18 +3,21 @@ extends Node2D
 @onready var begin_button = $Begin
 @onready var level_button = $Level
 @onready var fade_effect = $"../EffectLayer".get_child(0)
-
+@onready var items = $"../Items".get_children()
 @export var modulation_speed = 0.15
 @export var inactive_alpha = 0.2
 
 var next_level_path = "res://Levels/Level1.tscn"
 var state = "main_menu"
-var begin_button_state = true
-var level_button_state = false
 var fade_speed = 0.018
 var target_fade = 0.0
 var fade = 1.0
 var exit_offset = 0.1
+var selected_item = 0
+var row = 0
+var column = 0
+var rows = 2
+var columns = 5
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -22,35 +25,38 @@ func _ready():
 
 func _input(event):
 	if state == "main_menu":
-		if event.is_action_pressed("ui_cancel"):
-			get_tree().quit()
-		if event.is_action_pressed("ui_up") || event.is_action_pressed("ui_down"):
-			begin_button_state = !begin_button_state
-			level_button_state = !level_button_state
+		if event.is_action_pressed("ui_up"):
+			if !row == 0:
+				row -= 1
+		if event.is_action_pressed("ui_down"):
+			if row != rows - 1:
+				row += 1
+		if event.is_action_pressed("ui_left"):
+			if column != 0:
+				column -= 1
+		if event.is_action_pressed("ui_right"):
+			if column != columns - 1:
+				column += 1
+		selected_item = row * columns + column
+		print(selected_item)
 		if event.is_action_pressed("ui_accept"):
-			if begin_button_state:
+			if state != "locked":
 				state = "locked"
 				target_fade = 1.0
-			elif level_button_state:
-				state = "locked"
-				target_fade = 1.0
-				next_level_path = "res://Levels/LevelSelect.tscn"
-			
+				next_level_path = "res://Levels/Level" + str(selected_item + 1) + ".tscn"
+		if event.is_action_pressed("ui_cancel"):
+			state = "locked"
+			target_fade = 1.0
+			next_level_path = "res://Levels/MainMenu.tscn"
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	var begin_button_alpha
-	var level_button_alpha
-	if begin_button_state:
-		begin_button_alpha = 1.0
-	else:
-		begin_button_alpha = inactive_alpha
-	if level_button_state:
-		level_button_alpha = 1.0
-	else:
-		level_button_alpha = inactive_alpha
-	level_button.modulate.a = lerp(level_button.modulate.a, level_button_alpha, modulation_speed)
-	begin_button.modulate.a = lerp(begin_button.modulate.a, begin_button_alpha, modulation_speed)
-	
+	var i = 0
+	for N in items:
+		if i == selected_item:
+			N.modulate.a = lerp(N.modulate.a, 1.0, modulation_speed)
+		else:
+			N.modulate.a = lerp(N.modulate.a, inactive_alpha, modulation_speed)
+		i += 1
 	if target_fade >= 1.0:
 		fade = clamp(fade + target_fade * fade_speed, 0.0, 2.0)
 	else:
