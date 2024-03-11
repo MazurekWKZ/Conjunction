@@ -23,7 +23,7 @@ func _ready():
 func _input(event):
 	if state == "main_menu":
 		if event.is_action_pressed("ui_cancel"):
-			if OS.get_name() != "HTML":
+			if OS.get_name() != "Web":
 				get_tree().quit()
 		if event.is_action_pressed("ui_up") || event.is_action_pressed("ui_down"):
 			begin_button_state = !begin_button_state
