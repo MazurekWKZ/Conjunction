@@ -7,7 +7,7 @@ extends Node2D
 @export var modulation_speed = 0.15
 @export var inactive_alpha = 0.2
 
-var next_level_path = "res://Levels/Level1.tscn"
+var next_level_path = "res://Levels/Beginning.tscn"
 var state = "main_menu"
 var begin_button_state = true
 var level_button_state = false

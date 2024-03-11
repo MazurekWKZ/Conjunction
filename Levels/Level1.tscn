@@ -99,10 +99,9 @@ z_as_relative = false
 y_sort_enabled = true
 
 [node name="Sprite2D" type="Sprite2D" parent="Visuals/Walls"]
-visible = false
 z_as_relative = false
 texture_filter = 1
-position = Vector2(-112, -1)
+position = Vector2(-105, 48)
 texture = ExtResource("8_d0r87")
 region_enabled = true
 region_rect = Rect2(0, 0, 32, 32)
@@ -110,8 +109,18 @@ region_rect = Rect2(0, 0, 32, 32)
 [node name="Sprite2D2" type="Sprite2D" parent="Visuals/Walls"]
 z_as_relative = false
 texture_filter = 1
-position = Vector2(-207, -65)
+position = Vector2(-79, 14)
 texture = ExtResource("8_d0r87")
+flip_h = true
+region_enabled = true
+region_rect = Rect2(0, 0, 32, 32)
+
+[node name="Sprite2D9" type="Sprite2D" parent="Visuals/Walls"]
+z_as_relative = false
+texture_filter = 1
+position = Vector2(-14, 48)
+texture = ExtResource("8_d0r87")
+flip_h = true
 region_enabled = true
 region_rect = Rect2(0, 0, 32, 32)
 
@@ -158,8 +167,9 @@ region_rect = Rect2(32, 0, 64, 32)
 [node name="Sprite2D8" type="Sprite2D" parent="Visuals/Walls"]
 z_as_relative = false
 texture_filter = 1
-position = Vector2(113, -65)
+position = Vector2(-47, 48)
 texture = ExtResource("8_d0r87")
+flip_h = true
 region_enabled = true
 region_rect = Rect2(224, 0, 32, 32)
 

@@ -1,0 +1,41 @@
+[gd_scene load_steps=5 format=3 uid="uid://crvkudasa22c5"]
+
+[ext_resource type="PackedScene" uid="uid://c5jqm5klqmyqp" path="res://Shaders/effect_layer.tscn" id="1_iptb2"]
+[ext_resource type="Texture2D" uid="uid://deqkgxpntioog" path="res://Graphics/Effects/Vignette.png" id="2_u3f0o"]
+[ext_resource type="Texture2D" uid="uid://cicwjp1yyndsm" path="res://Graphics/Menu/Beginning.png" id="3_2vxv7"]
+[ext_resource type="Script" path="res://Scripts/Menu/Interlude.gd" id="4_tidna"]
+
+[node name="MainMenu" type="Node2D"]
+
+[node name="EffectLayer" parent="." instance=ExtResource("1_iptb2")]
+
+[node name="Vignette" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.368627)
+z_index = 10
+position = Vector2(-16, -1.90735e-06)
+scale = Vector2(4, 1.57813)
+texture = ExtResource("2_u3f0o")
+
+[node name="Visuals" type="Node2D" parent="."]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(2, 2)
+
+[node name="Background" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(3, 0)
+scale = Vector2(2.8125, 3.15625)
+texture = ExtResource("3_2vxv7")
+region_rect = Rect2(64, 0, 32, 16)
+
+[node name="Interlude" type="Node2D" parent="."]
+position = Vector2(0, 52)
+script = ExtResource("4_tidna")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+z_index = -3
+offset_left = -320.0
+offset_top = -176.0
+offset_right = 320.0
+offset_bottom = 176.0
+color = Color(0, 0, 0, 1)

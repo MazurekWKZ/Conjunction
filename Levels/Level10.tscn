@@ -75,11 +75,12 @@ zoom = Vector2(2, 2)
 
 [node name="LevelControler" type="Node2D" parent="." node_paths=PackedStringArray("scene_reference")]
 script = ExtResource("4_5bp10")
-next_scene = "res://Levels/MainMenu.tscn"
+next_scene = "res://Levels/Ending.tscn"
 scene_reference = NodePath("..")
 
 [node name="Gate" parent="." instance=ExtResource("5_2y1mr")]
 position = Vector2(-16, 58)
+next_level_path = "res://Levels/Ending.tscn"
 number_of_players = 2
 
 [node name="Pentagram" type="Sprite2D" parent="."]
@@ -94,7 +95,6 @@ offset = Vector2(0, -11.12)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Pentagram/PentagramArea"]
 position = Vector2(0, -12.6146)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_llex0")
 
 [node name="PentagramAudio" type="AudioStreamPlayer2D" parent="Pentagram"]
