@@ -88,8 +88,8 @@ position = Vector2(-1, 1)
 modulate = Color(1, 1, 1, 0.235294)
 z_index = 999
 z_as_relative = false
-position = Vector2(1.00001, -1.00001)
-scale = Vector2(4.5, 2.5)
+position = Vector2(1.00001, -0.500003)
+scale = Vector2(4.5, 2.58594)
 texture = ExtResource("7_i5bxv")
 
 [node name="Walls" type="Node2D" parent="Visuals"]
@@ -162,17 +162,251 @@ region_enabled = true
 region_rect = Rect2(224, 0, 32, 32)
 
 [node name="Holes" type="Node2D" parent="Visuals"]
-visible = false
 z_as_relative = false
 y_sort_enabled = true
 
 [node name="AnimatedSprite2D" parent="Visuals/Holes" instance=ExtResource("9_7umsp")]
+position = Vector2(-303, -81)
 
 [node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="Visuals/Holes"]
 z_index = -1
 z_as_relative = false
 texture_filter = 1
-position = Vector2(-207, 31)
+position = Vector2(-271, -81)
+sprite_frames = ExtResource("10_t6ny6")
+animation = &"Wiggle"
+autoplay = "Wiggle"
+
+[node name="AnimatedSprite2D3" type="AnimatedSprite2D" parent="Visuals/Holes"]
+z_index = -1
+z_as_relative = false
+texture_filter = 1
+position = Vector2(-239, -81)
+sprite_frames = ExtResource("10_t6ny6")
+animation = &"Wiggle"
+autoplay = "Wiggle"
+
+[node name="AnimatedSprite2D4" type="AnimatedSprite2D" parent="Visuals/Holes"]
+z_index = -1
+z_as_relative = false
+texture_filter = 1
+position = Vector2(-207, -81)
+sprite_frames = ExtResource("10_t6ny6")
+animation = &"Wiggle"
+autoplay = "Wiggle"
+
+[node name="AnimatedSprite2D5" type="AnimatedSprite2D" parent="Visuals/Holes"]
+z_index = -1
+z_as_relative = false
+texture_filter = 1
+position = Vector2(-175, -81)
+sprite_frames = ExtResource("10_t6ny6")
+animation = &"Wiggle"
+autoplay = "Wiggle"
+
+[node name="AnimatedSprite2D6" type="AnimatedSprite2D" parent="Visuals/Holes"]
+z_index = -1
+z_as_relative = false
+texture_filter = 1
+position = Vector2(-143, -81)
+sprite_frames = ExtResource("10_t6ny6")
+animation = &"Wiggle"
+autoplay = "Wiggle"
+
+[node name="AnimatedSprite2D7" type="AnimatedSprite2D" parent="Visuals/Holes"]
+z_index = -1
+z_as_relative = false
+texture_filter = 1
+position = Vector2(-111, -81)
+sprite_frames = ExtResource("10_t6ny6")
+animation = &"Wiggle"
+autoplay = "Wiggle"
+
+[node name="AnimatedSprite2D8" type="AnimatedSprite2D" parent="Visuals/Holes"]
+z_index = -1
+z_as_relative = false
+texture_filter = 1
+position = Vector2(-111, -65)
+sprite_frames = ExtResource("10_t6ny6")
+animation = &"Wiggle"
+autoplay = "Wiggle"
+
+[node name="AnimatedSprite2D9" type="AnimatedSprite2D" parent="Visuals/Holes"]
+z_index = -1
+z_as_relative = false
+texture_filter = 1
+position = Vector2(-79, -65)
+sprite_frames = ExtResource("10_t6ny6")
+animation = &"Wiggle"
+autoplay = "Wiggle"
+
+[node name="AnimatedSprite2D10" type="AnimatedSprite2D" parent="Visuals/Holes"]
+z_index = -1
+z_as_relative = false
+texture_filter = 1
+position = Vector2(-47, -65)
+sprite_frames = ExtResource("10_t6ny6")
+animation = &"Wiggle"
+autoplay = "Wiggle"
+
+[node name="AnimatedSprite2D11" type="AnimatedSprite2D" parent="Visuals/Holes"]
+z_index = -1
+z_as_relative = false
+texture_filter = 1
+position = Vector2(-47, -49)
+sprite_frames = ExtResource("10_t6ny6")
+animation = &"Wiggle"
+autoplay = "Wiggle"
+
+[node name="AnimatedSprite2D12" type="AnimatedSprite2D" parent="Visuals/Holes"]
+z_index = -1
+z_as_relative = false
+texture_filter = 1
+position = Vector2(-15, -49)
+sprite_frames = ExtResource("10_t6ny6")
+animation = &"Wiggle"
+autoplay = "Wiggle"
+
+[node name="AnimatedSprite2D13" type="AnimatedSprite2D" parent="Visuals/Holes"]
+z_index = -1
+z_as_relative = false
+texture_filter = 1
+position = Vector2(-15, -33)
+sprite_frames = ExtResource("10_t6ny6")
+animation = &"Wiggle"
+autoplay = "Wiggle"
+
+[node name="AnimatedSprite2D14" type="AnimatedSprite2D" parent="Visuals/Holes"]
+z_index = -1
+z_as_relative = false
+texture_filter = 1
+position = Vector2(17, -33)
+sprite_frames = ExtResource("10_t6ny6")
+animation = &"Wiggle"
+autoplay = "Wiggle"
+
+[node name="AnimatedSprite2D15" type="AnimatedSprite2D" parent="Visuals/Holes"]
+z_index = -1
+z_as_relative = false
+texture_filter = 1
+position = Vector2(17, -17)
+sprite_frames = ExtResource("10_t6ny6")
+animation = &"Wiggle"
+autoplay = "Wiggle"
+
+[node name="AnimatedSprite2D16" type="AnimatedSprite2D" parent="Visuals/Holes"]
+z_index = -1
+z_as_relative = false
+texture_filter = 1
+position = Vector2(48, -17)
+sprite_frames = ExtResource("10_t6ny6")
+animation = &"Wiggle"
+autoplay = "Wiggle"
+
+[node name="AnimatedSprite2D17" type="AnimatedSprite2D" parent="Visuals/Holes"]
+z_index = -1
+z_as_relative = false
+texture_filter = 1
+position = Vector2(48, -1)
+sprite_frames = ExtResource("10_t6ny6")
+animation = &"Wiggle"
+autoplay = "Wiggle"
+
+[node name="AnimatedSprite2D18" type="AnimatedSprite2D" parent="Visuals/Holes"]
+z_index = -1
+z_as_relative = false
+texture_filter = 1
+position = Vector2(81, 0)
+sprite_frames = ExtResource("10_t6ny6")
+animation = &"Wiggle"
+autoplay = "Wiggle"
+
+[node name="AnimatedSprite2D19" type="AnimatedSprite2D" parent="Visuals/Holes"]
+z_index = -1
+z_as_relative = false
+texture_filter = 1
+position = Vector2(113, 0)
+sprite_frames = ExtResource("10_t6ny6")
+animation = &"Wiggle"
+autoplay = "Wiggle"
+
+[node name="AnimatedSprite2D20" type="AnimatedSprite2D" parent="Visuals/Holes"]
+z_index = -1
+z_as_relative = false
+texture_filter = 1
+position = Vector2(145, 0)
+sprite_frames = ExtResource("10_t6ny6")
+animation = &"Wiggle"
+autoplay = "Wiggle"
+
+[node name="AnimatedSprite2D21" type="AnimatedSprite2D" parent="Visuals/Holes"]
+z_index = -1
+z_as_relative = false
+texture_filter = 1
+position = Vector2(112, 16)
+sprite_frames = ExtResource("10_t6ny6")
+animation = &"Wiggle"
+autoplay = "Wiggle"
+
+[node name="AnimatedSprite2D22" type="AnimatedSprite2D" parent="Visuals/Holes"]
+z_index = -1
+z_as_relative = false
+texture_filter = 1
+position = Vector2(145, 16)
+sprite_frames = ExtResource("10_t6ny6")
+animation = &"Wiggle"
+autoplay = "Wiggle"
+
+[node name="AnimatedSprite2D23" type="AnimatedSprite2D" parent="Visuals/Holes"]
+z_index = -1
+z_as_relative = false
+texture_filter = 1
+position = Vector2(177, 15)
+sprite_frames = ExtResource("10_t6ny6")
+animation = &"Wiggle"
+autoplay = "Wiggle"
+
+[node name="AnimatedSprite2D24" type="AnimatedSprite2D" parent="Visuals/Holes"]
+z_index = -1
+z_as_relative = false
+texture_filter = 1
+position = Vector2(209, 15)
+sprite_frames = ExtResource("10_t6ny6")
+animation = &"Wiggle"
+autoplay = "Wiggle"
+
+[node name="AnimatedSprite2D25" type="AnimatedSprite2D" parent="Visuals/Holes"]
+z_index = -1
+z_as_relative = false
+texture_filter = 1
+position = Vector2(241, 15)
+sprite_frames = ExtResource("10_t6ny6")
+animation = &"Wiggle"
+autoplay = "Wiggle"
+
+[node name="AnimatedSprite2D26" type="AnimatedSprite2D" parent="Visuals/Holes"]
+z_index = -1
+z_as_relative = false
+texture_filter = 1
+position = Vector2(241, 31)
+sprite_frames = ExtResource("10_t6ny6")
+animation = &"Wiggle"
+autoplay = "Wiggle"
+
+[node name="AnimatedSprite2D27" type="AnimatedSprite2D" parent="Visuals/Holes"]
+z_index = -1
+z_as_relative = false
+texture_filter = 1
+position = Vector2(273, 31)
+sprite_frames = ExtResource("10_t6ny6")
+animation = &"Wiggle"
+autoplay = "Wiggle"
+
+[node name="AnimatedSprite2D28" type="AnimatedSprite2D" parent="Visuals/Holes"]
+z_index = -1
+z_as_relative = false
+texture_filter = 1
+position = Vector2(305, 47)
 sprite_frames = ExtResource("10_t6ny6")
 animation = &"Wiggle"
 autoplay = "Wiggle"

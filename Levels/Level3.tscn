@@ -86,8 +86,8 @@ position = Vector2(-1, 1)
 modulate = Color(1, 1, 1, 0.235294)
 z_index = 999
 z_as_relative = false
-position = Vector2(1.00001, -1.00001)
-scale = Vector2(4.5, 2.5)
+position = Vector2(1.00001, -1.5)
+scale = Vector2(4.5, 2.58594)
 texture = ExtResource("7_o1far")
 
 [node name="Walls" type="Node2D" parent="Visuals"]

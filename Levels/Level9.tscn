@@ -86,8 +86,8 @@ position = Vector2(-1, 1)
 modulate = Color(1, 1, 1, 0.235294)
 z_index = 999
 z_as_relative = false
-position = Vector2(1.00001, -1.00001)
-scale = Vector2(4.5, 2.5)
+position = Vector2(1.00001, -1.99999)
+scale = Vector2(4.5, 2.54688)
 texture = ExtResource("7_nybtd")
 
 [node name="Walls" type="Node2D" parent="Visuals"]
@@ -160,17 +160,17 @@ region_enabled = true
 region_rect = Rect2(224, 0, 32, 32)
 
 [node name="Holes" type="Node2D" parent="Visuals"]
-visible = false
 z_as_relative = false
 y_sort_enabled = true
 
 [node name="AnimatedSprite2D" parent="Visuals/Holes" instance=ExtResource("9_vkqn1")]
+position = Vector2(-239, 63)
 
 [node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="Visuals/Holes"]
 z_index = -1
 z_as_relative = false
 texture_filter = 1
-position = Vector2(-207, 31)
+position = Vector2(81, -81)
 sprite_frames = ExtResource("10_abww7")
 animation = &"Wiggle"
 autoplay = "Wiggle"
