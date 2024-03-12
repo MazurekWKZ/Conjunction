@@ -4,6 +4,7 @@ class_name Player extends Node2D
 @onready var tile_map = $"../TileMap"
 @onready var raycast_player = $RayCast2D
 @onready var sprite_player = $AnimatedSprite2D
+@onready var player_area = $Area2D
 
 @export var walking_speed = 2
 
@@ -60,8 +61,10 @@ func _physics_process(delta):
 			return
 		if global_position.y == target_position.y:
 			global_position = global_position.move_toward(target_position, walking_speed)
+			player_area.position = target_position - global_position
 		else:
 			global_position = global_position.move_toward(target_position, walking_speed/1.3)
+			player_area.position = target_position - global_position
 		return
 
 func move(direction: Vector2):

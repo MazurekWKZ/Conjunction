@@ -34,8 +34,12 @@ func _physics_process(delta):
 			return
 		if global_position.y == target_position.y:
 			global_position = global_position.move_toward(target_position, walking_speed)
+			if collider_block != null:
+				collider_block.position = target_position - global_position
 		else:
 			global_position = global_position.move_toward(target_position, walking_speed/1.3)
+			if collider_block != null:
+				collider_block.position = target_position - global_position
 		return
 
 func move(direction: Vector2):

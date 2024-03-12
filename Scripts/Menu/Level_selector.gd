@@ -1,7 +1,5 @@
 extends Node2D
 
-@onready var begin_button = $Begin
-@onready var level_button = $Level
 @onready var fade_effect = $"../EffectLayer".get_child(0)
 @onready var items = $"../Items".get_children()
 @export var modulation_speed = 0.15

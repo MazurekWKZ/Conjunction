@@ -1,7 +1,5 @@
 extends Node2D
 
-@onready var begin_button = $Begin
-@onready var level_button = $Level
 @onready var fade_effect = $"../EffectLayer".get_child(0)
 
 @export var next_level_path = "res://Levels/Level1.tscn"
