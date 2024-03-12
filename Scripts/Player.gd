@@ -61,10 +61,12 @@ func _physics_process(delta):
 			return
 		if global_position.y == target_position.y:
 			global_position = global_position.move_toward(target_position, walking_speed)
-			player_area.position = target_position - global_position
+			if player_area != null:	
+				player_area.position = target_position - global_position
 		else:
 			global_position = global_position.move_toward(target_position, walking_speed/1.3)
-			player_area.position = target_position - global_position
+			if player_area != null:
+				player_area.position = target_position - global_position
 		return
 
 func move(direction: Vector2):

@@ -26,15 +26,31 @@ func _input(event):
 		if event.is_action_pressed("ui_up"):
 			if !row == 0:
 				row -= 1
+			else:
+				row = rows -1
 		if event.is_action_pressed("ui_down"):
 			if row != rows - 1:
 				row += 1
+			else:
+				row = 0
 		if event.is_action_pressed("ui_left"):
 			if column != 0:
 				column -= 1
+			else:
+				column = columns -1
+				if row != 0:
+					row -= 1
+				else:
+					row = rows - 1
 		if event.is_action_pressed("ui_right"):
 			if column != columns - 1:
 				column += 1
+			else:
+				column = 0
+				if row != rows -1:
+					row += 1
+				else:
+					row = 0
 		selected_item = row * columns + column
 		print(selected_item)
 		if event.is_action_pressed("ui_accept"):
