@@ -12,7 +12,7 @@ func _ready():
 	pass # Replace with function body.
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _physics_process(delta):
 	if marker_sprite != null:
 		if state == "busy" || target_node.state == "busy":
 			marker_sprite.alpha_factor = 0.35

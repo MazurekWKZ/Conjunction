@@ -191,15 +191,6 @@ rotation_speed = 0.1
 z_as_relative = false
 y_sort_enabled = true
 
-[node name="Sign" parent="Visuals/Markers" instance=ExtResource("11_xcb7n")]
-position = Vector2(-47, 31)
-alpha_factor = 0.7
-
-[node name="Sign2" parent="Visuals/Markers" instance=ExtResource("11_xcb7n")]
-position = Vector2(-143, -37)
-texture = ExtResource("12_51sbt")
-alpha_factor = 0.7
-
 [node name="Sign3" parent="Visuals/Markers" instance=ExtResource("11_xcb7n")]
 position = Vector2(-23, -30)
 texture = ExtResource("13_56te0")
@@ -235,13 +226,24 @@ position = Vector2(144, 88)
 [node name="GateButton2" parent="." instance=ExtResource("5_webwq")]
 position = Vector2(-112, 39)
 
-[node name="Portal" parent="." node_paths=PackedStringArray("target_node") instance=ExtResource("6_7mjsq")]
+[node name="Portal" parent="." node_paths=PackedStringArray("target_node", "marker_sprite") instance=ExtResource("6_7mjsq")]
 position = Vector2(-48, 40)
 target_node = NodePath("../Portal2")
+marker_sprite = NodePath("Sign")
 
-[node name="Portal2" parent="." node_paths=PackedStringArray("target_node") instance=ExtResource("6_7mjsq")]
+[node name="Sign" parent="Portal" instance=ExtResource("11_xcb7n")]
+position = Vector2(0, -8)
+alpha_factor = 0.7
+
+[node name="Portal2" parent="." node_paths=PackedStringArray("target_node", "marker_sprite") instance=ExtResource("6_7mjsq")]
 position = Vector2(-144, -24)
 target_node = NodePath("../Portal")
+marker_sprite = NodePath("Sign2")
+
+[node name="Sign2" parent="Portal2" instance=ExtResource("11_xcb7n")]
+position = Vector2(0, -12)
+texture = ExtResource("12_51sbt")
+alpha_factor = 0.7
 
 [node name="BlockEntangled" parent="." node_paths=PackedStringArray("sibling_node") instance=ExtResource("7_mi4d2")]
 position = Vector2(144, 8)
