@@ -38,7 +38,7 @@ func _input(event):
 				row = rows
 		if event.is_action_pressed("ui_left"):
 			click_audio.play()
-			if column > 0:
+			if column > 0 && row < rows:
 				column -= 1
 			else:
 				column = columns -1
