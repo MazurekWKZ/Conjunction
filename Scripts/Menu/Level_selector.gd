@@ -2,12 +2,15 @@ extends Node2D
 
 @onready var fade_effect = $"../EffectLayer".get_child(0)
 @onready var items = $"../Items".get_children()
+@onready var click_audio = $Click
+@onready var confirm_audio = $Confirm
+
 @export var modulation_speed = 0.15
 @export var inactive_alpha = 0.2
 
 var next_level_path = "res://Levels/Level1.tscn"
 var state = "main_menu"
-var fade_speed = 0.018
+var fade_speed = 0.03
 var target_fade = 0.0
 var fade = 1.0
 var exit_offset = 0.1
@@ -24,16 +27,19 @@ func _ready():
 func _input(event):
 	if state == "main_menu":
 		if event.is_action_pressed("ui_up"):
+			click_audio.play()
 			if !row == 0:
 				row -= 1
 			else:
 				row = rows -1
 		if event.is_action_pressed("ui_down"):
+			click_audio.play()
 			if row != rows - 1:
 				row += 1
 			else:
 				row = 0
 		if event.is_action_pressed("ui_left"):
+			click_audio.play()
 			if column != 0:
 				column -= 1
 			else:
@@ -43,6 +49,7 @@ func _input(event):
 				else:
 					row = rows - 1
 		if event.is_action_pressed("ui_right"):
+			click_audio.play()
 			if column != columns - 1:
 				column += 1
 			else:
@@ -54,11 +61,13 @@ func _input(event):
 		selected_item = row * columns + column
 		print(selected_item)
 		if event.is_action_pressed("ui_accept"):
+			confirm_audio.play()
 			if state != "locked":
 				state = "locked"
 				target_fade = 1.0
 				next_level_path = "res://Levels/Level" + str(selected_item + 1) + ".tscn"
 		if event.is_action_pressed("ui_cancel"):
+			confirm_audio.play()
 			state = "locked"
 			target_fade = 1.0
 			next_level_path = "res://Levels/MainMenu.tscn"

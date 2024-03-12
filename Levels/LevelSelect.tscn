@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://db1gse6o68n07"]
+[gd_scene load_steps=20 format=3 uid="uid://db1gse6o68n07"]
 
 [ext_resource type="PackedScene" uid="uid://c5jqm5klqmyqp" path="res://Shaders/effect_layer.tscn" id="1_n6wtk"]
 [ext_resource type="Texture2D" uid="uid://deqkgxpntioog" path="res://Graphics/Effects/Vignette.png" id="2_ty1xh"]
@@ -17,6 +17,8 @@
 [ext_resource type="Texture2D" uid="uid://brhdu210kmal4" path="res://Graphics/Menu/8.png" id="15_dv2nq"]
 [ext_resource type="Texture2D" uid="uid://chvys0lbaocj6" path="res://Graphics/Menu/9.png" id="16_3rilu"]
 [ext_resource type="Texture2D" uid="uid://blw0j81c4rekk" path="res://Graphics/Menu/10.png" id="17_icjpi"]
+[ext_resource type="AudioStream" uid="uid://dxia45mijahwp" path="res://Music/Menu_click.mp3" id="18_4mjlv"]
+[ext_resource type="AudioStream" uid="uid://dmsa37uoi82nw" path="res://Music/Crash.mp3" id="19_647jc"]
 
 [node name="MainMenu" type="Node2D"]
 
@@ -61,6 +63,14 @@ script = ExtResource("7_p6k7w")
 [node name="Level_selector" type="Node2D" parent="Menu_handler"]
 
 [node name="Level_icon" type="Sprite2D" parent="Menu_handler/Level_selector"]
+
+[node name="Click" type="AudioStreamPlayer2D" parent="Menu_handler"]
+position = Vector2(0, -52)
+stream = ExtResource("18_4mjlv")
+
+[node name="Confirm" type="AudioStreamPlayer2D" parent="Menu_handler"]
+position = Vector2(0, -52)
+stream = ExtResource("19_647jc")
 
 [node name="Items" type="Node2D" parent="."]
 

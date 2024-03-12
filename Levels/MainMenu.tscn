@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://cpjw8pcjl2mpi"]
+[gd_scene load_steps=14 format=3 uid="uid://cpjw8pcjl2mpi"]
 
 [ext_resource type="PackedScene" uid="uid://c5jqm5klqmyqp" path="res://Shaders/effect_layer.tscn" id="1_rf80s"]
 [ext_resource type="Texture2D" uid="uid://bnawlgx6i3s3m" path="res://Graphics/Menu/Title.png" id="1_wb0qo"]
@@ -11,6 +11,8 @@
 [ext_resource type="Script" path="res://Scripts/Menu/Menu_handler.gd" id="6_o5kjt"]
 [ext_resource type="Texture2D" uid="uid://47srhk2mvvge" path="res://Graphics/Menu/Hold_r.png" id="6_tsc8a"]
 [ext_resource type="Texture2D" uid="uid://b2x47w82tsc0t" path="res://Graphics/Menu/Select.png" id="7_t47ly"]
+[ext_resource type="AudioStream" uid="uid://dxia45mijahwp" path="res://Music/Menu_click.mp3" id="12_074em"]
+[ext_resource type="AudioStream" uid="uid://dmsa37uoi82nw" path="res://Music/Crash.mp3" id="13_yjpxh"]
 
 [node name="MainMenu" type="Node2D"]
 
@@ -75,3 +77,11 @@ texture = ExtResource("7_t47ly")
 [node name="Level_selector" type="Node2D" parent="Menu_handler"]
 
 [node name="Level_icon" type="Sprite2D" parent="Menu_handler/Level_selector"]
+
+[node name="Click" type="AudioStreamPlayer2D" parent="Menu_handler"]
+position = Vector2(0, -52)
+stream = ExtResource("12_074em")
+
+[node name="Confirm" type="AudioStreamPlayer2D" parent="Menu_handler"]
+position = Vector2(0, -52)
+stream = ExtResource("13_yjpxh")

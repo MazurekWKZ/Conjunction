@@ -7,9 +7,6 @@ extends Node2D
 
 @onready var next_scene_path = main_menu_path
 
-var retry_timeout = 1.0
-var retry_timer = 0.0
-var timer_enabled = false
 var target_volume_db = 0.0
 var volume_decrease_speed = 0.02
 var fade_speed = 0.018
@@ -24,13 +21,6 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	if timer_enabled:
-		retry_timer += delta
-		if retry_timer > retry_timeout:
-			print("time exceeded")
-			get_tree().change_scene_to_file(current_scene_path)
-	else:
-		retry_timer = 0
 		
 	if audio_stream != null:
 		audio_stream.volume_db = lerp(audio_stream.volume_db, target_volume_db, volume_decrease_speed)
@@ -47,16 +37,14 @@ func _process(delta):
 	
 
 func _input(event):
-	if event is InputEventKey and event.is_pressed():
-		if event.keycode == KEY_R:
-			timer_enabled = true
-			target_volume_db = -60.0
-			target_fade = 1.0
-	if event is InputEventKey and event.is_released():
-		if event.keycode == KEY_R:
-			timer_enabled = false
-			target_volume_db = 0.0
-			target_fade = 0.0
+	if event is InputEventKey and event.is_action_pressed("custom_restart"):
+		target_volume_db = -60.0
+		target_fade = 1.0
+		next_scene_path = current_scene_path
+	if event is InputEventKey and event.is_action_released("custom_restart"):
+		target_volume_db = 0.0
+		target_fade = 0.0
+		next_scene_path = main_menu_path
 			
 	if event.is_action_pressed("ui_cancel"):
 		next_scene_path = main_menu_path

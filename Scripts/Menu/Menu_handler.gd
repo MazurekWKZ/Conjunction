@@ -3,6 +3,8 @@ extends Node2D
 @onready var begin_button = $Begin
 @onready var level_button = $Level
 @onready var fade_effect = $"../EffectLayer".get_child(0)
+@onready var click_audio = $Click
+@onready var confirm_audio = $Confirm
 
 @export var modulation_speed = 0.15
 @export var inactive_alpha = 0.2
@@ -11,7 +13,7 @@ var next_level_path = "res://Levels/Beginning.tscn"
 var state = "main_menu"
 var begin_button_state = true
 var level_button_state = false
-var fade_speed = 0.018
+var fade_speed = 0.03
 var target_fade = 0.0
 var fade = 1.0
 var exit_offset = 0.1
@@ -24,11 +26,14 @@ func _input(event):
 	if state == "main_menu":
 		if event.is_action_pressed("ui_cancel"):
 			if OS.get_name() != "Web":
+				confirm_audio.play()
 				get_tree().quit()
 		if event.is_action_pressed("ui_up") || event.is_action_pressed("ui_down"):
+			click_audio.play()
 			begin_button_state = !begin_button_state
 			level_button_state = !level_button_state
 		if event.is_action_pressed("ui_accept"):
+			confirm_audio.play()
 			if begin_button_state:
 				state = "locked"
 				target_fade = 1.0

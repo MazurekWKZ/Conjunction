@@ -10,7 +10,7 @@ class_name Player extends Node2D
 
 var is_moving = false
 var is_pushing = false
-var target_position
+@onready var target_position = position
 var player_state = "alive"
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -52,6 +52,11 @@ func _process(delta):
 		sprite_player.play("idle")
 	
 func _physics_process(delta):
+	if player_area != null:	
+		player_area.position = target_position - global_position
+	if player_area != null:
+		player_area.position = target_position - global_position
+				
 	if !is_moving:
 		return
 	
@@ -61,12 +66,8 @@ func _physics_process(delta):
 			return
 		if global_position.y == target_position.y:
 			global_position = global_position.move_toward(target_position, walking_speed)
-			if player_area != null:	
-				player_area.position = target_position - global_position
 		else:
 			global_position = global_position.move_toward(target_position, walking_speed/1.3)
-			if player_area != null:
-				player_area.position = target_position - global_position
 		return
 
 func move(direction: Vector2):

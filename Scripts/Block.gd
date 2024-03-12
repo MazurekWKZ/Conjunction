@@ -8,7 +8,7 @@ class_name Block extends Node2D
 @export var walking_speed = 2
 
 var is_moving = false
-var target_position
+@onready var target_position = position
 var is_locked = false
 var is_falling = false
 
@@ -21,8 +21,14 @@ func _process(delta):
 
 
 func _physics_process(delta):
+	if collider_block != null:
+		collider_block.position = target_position - global_position
+	if collider_block != null:
+		collider_block.position = target_position - global_position
+				
 	if !is_moving:
 		return
+		
 	if is_moving:
 		if global_position == target_position:
 			is_moving = false
@@ -34,12 +40,8 @@ func _physics_process(delta):
 			return
 		if global_position.y == target_position.y:
 			global_position = global_position.move_toward(target_position, walking_speed)
-			if collider_block != null:
-				collider_block.position = target_position - global_position
 		else:
 			global_position = global_position.move_toward(target_position, walking_speed/1.3)
-			if collider_block != null:
-				collider_block.position = target_position - global_position
 		return
 
 func move(direction: Vector2):
