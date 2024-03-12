@@ -28,45 +28,46 @@ func _input(event):
 	if state == "main_menu":
 		if event.is_action_pressed("ui_up"):
 			click_audio.play()
-			if !row == 0:
+			if row > 0:
 				row -= 1
-			else:
-				row = rows -1
 		if event.is_action_pressed("ui_down"):
 			click_audio.play()
-			if row != rows - 1:
+			if row < rows - 1:
 				row += 1
 			else:
-				row = 0
+				row = rows
 		if event.is_action_pressed("ui_left"):
 			click_audio.play()
-			if column != 0:
+			if column > 0:
 				column -= 1
 			else:
 				column = columns -1
-				if row != 0:
+				if row > 0:
 					row -= 1
 				else:
 					row = rows - 1
 		if event.is_action_pressed("ui_right"):
 			click_audio.play()
-			if column != columns - 1:
+			if column < columns - 1 && row < rows:
 				column += 1
 			else:
 				column = 0
-				if row != rows -1:
+				if row < rows:
 					row += 1
 				else:
 					row = 0
-		selected_item = row * columns + column
+		selected_item = clamp(row * columns + column, 0, rows * columns)
 		print(selected_item)
 		if event.is_action_pressed("ui_accept"):
 			confirm_audio.play()
 			if state != "locked":
 				state = "locked"
 				target_fade = 1.0
-				next_level_path = "res://Levels/Level" + str(selected_item + 1) + ".tscn"
-		if event.is_action_pressed("ui_cancel"):
+				if selected_item < rows * columns:
+					next_level_path = "res://Levels/Level" + str(selected_item + 1) + ".tscn"
+				else:
+					next_level_path = "res://Levels/MainMenu.tscn"
+		if event.is_action_pressed("ui_cancel") || event.is_action_pressed("ui_text_backspace"):
 			confirm_audio.play()
 			state = "locked"
 			target_fade = 1.0

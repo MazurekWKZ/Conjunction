@@ -46,7 +46,7 @@ func _input(event):
 		target_fade = 0.0
 		next_scene_path = main_menu_path
 			
-	if event.is_action_pressed("ui_cancel"):
+	if event.is_action_pressed("ui_cancel") || event.is_action_pressed("ui_text_backspace"):
 		next_scene_path = main_menu_path
 		target_volume_db = -60.0
 		target_fade = 1.0

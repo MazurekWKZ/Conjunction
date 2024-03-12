@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://db1gse6o68n07"]
+[gd_scene load_steps=21 format=3 uid="uid://db1gse6o68n07"]
 
 [ext_resource type="PackedScene" uid="uid://c5jqm5klqmyqp" path="res://Shaders/effect_layer.tscn" id="1_n6wtk"]
 [ext_resource type="Texture2D" uid="uid://deqkgxpntioog" path="res://Graphics/Effects/Vignette.png" id="2_ty1xh"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://bajon7fkqvwnn" path="res://Graphics/Menu/BG_white.png" id="5_og2hu"]
 [ext_resource type="Texture2D" uid="uid://dek2lg53lpyc4" path="res://Graphics/GenericTileset.png" id="6_omlej"]
 [ext_resource type="Script" path="res://Scripts/Menu/Level_selector.gd" id="7_p6k7w"]
+[ext_resource type="Texture2D" uid="uid://bp31e3udxa21j" path="res://Graphics/Menu/Back.png" id="8_vvqrl"]
 [ext_resource type="Texture2D" uid="uid://boqvnkl1atlmr" path="res://Graphics/Menu/1.png" id="8_ydo28"]
 [ext_resource type="Texture2D" uid="uid://dehf41f7kg1ev" path="res://Graphics/Menu/2.png" id="9_6lepg"]
 [ext_resource type="Texture2D" uid="uid://e0fjadtbughp" path="res://Graphics/Menu/3.png" id="10_8i56u"]
@@ -123,3 +124,8 @@ texture = ExtResource("16_3rilu")
 position = Vector2(160, 59)
 scale = Vector2(2, 2)
 texture = ExtResource("17_icjpi")
+
+[node name="Back" type="Sprite2D" parent="Items"]
+position = Vector2(0, 128)
+scale = Vector2(2, 2)
+texture = ExtResource("8_vvqrl")
